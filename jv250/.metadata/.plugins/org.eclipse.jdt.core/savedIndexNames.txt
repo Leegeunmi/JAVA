@@ -1,1 +1,0 @@
-INDEX VERSION 1.131+C:\JAVA_GEUNMI\My work space\java_leegeunmi\.metadata\.plugins\org.eclipse.jdt.core
