@@ -41,8 +41,10 @@
 		
 		JDBC와 관련된 패키지 (예약키워드)
 									java.sql.*
-									javax.sql.*
-		API참고하기							
+									javax.sql.*              API참고하기
+									
+									
+									
 		
 									
 		

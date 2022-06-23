@@ -71,5 +71,22 @@ CREATE TABLE Account (
 )AUTO_INCREMENT = 3001; -- aid와 같다.  3001부터 넘버링 된다.
 
 INSERT INTO Account (accountNum, balance, interestRate, overdraft, accountType, customerId)
-VALUES ('50-96-5025', 8796000, 0.5, 2000000, 'S', 1001);
+VALUES ('501-96-5025', 8796000, 0.5, 2000000, 'S', 1001);
+SELECT * FROM Account, Customer 
+WHERE Account.customerId = Customer.cid AND Customer.ssn = '880506-1600000';
+
 SELECT * FROM Account;
+
+INSERT INTO Customer (name, ssn, phone, customerId, passwd)
+VALUES ('유비', '880506-1600000', '010-5895-8522', 'java','1111'),
+('관우', '956202-1600000', '010-8895-8522', 'eclipse','2222'),
+('장비', '852457-2568759', '010-8765-8522', 'sqlsql','3333');
+
+--inner join
+SELECT * FROM Account, Customer
+WHERE Account.customerId = Customer.cid AND Customer.ssn = '880506-1600000';
+
+SELECT * FROM Account a INNER JOIN Customer c ON a.customerId = c.cid;
+
+SELECT * FROM Account a INNER JOIN Customer c ON a.customerId = c.cid;
+WHERE ssn = '880506-1600000';
