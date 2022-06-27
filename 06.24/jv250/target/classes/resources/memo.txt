@@ -1,0 +1,53 @@
+	SQL (Structured Query Language)
+	1. DQL (Data Query Language)
+		SELECT
+	2. DML (Data Manipulation Language)
+		INSERT
+		UPDATE
+		DELETE
+	3. DDL (Date Definition Language)
+		CREATE
+		ALTER
+		DROP
+		TRUNCATE
+		RENAME
+	4. DCL (Data Control Language)
+		GRANT 권한부여
+		REVOKE 권한해제
+	5. TCL (Transaction Control Language)
+		COMMIT
+		ROLLBACK
+		
+		호출(요청)하는 쪽 - 클라이언트
+		응답하는 쪽 - 서버
+		미들티어 - 자바         (애플리케이션 서버)
+		백엔트디어 - 데이타베이스  (디비 서버)
+		
+		--명령프롬프트
+		create user 'jv250'@localhost identified by 'jv250';
+					 아이디                            비번
+					 
+		select host, user from user;
+		
+		grant all privileges on jv250.* to 'jv250'@localhost with grant option;
+
+		
+		
+		
+		JDBC(Java Data Base Connectivity)
+		interface 개념에 대한 스펙 -> JDBC
+		
+		
+		
+		JDBC와 관련된 패키지 (예약키워드)
+									java.sql.*
+									javax.sql.*              API참고하기
+									
+									
+									
+		
+									
+		
+			
+			
+		
