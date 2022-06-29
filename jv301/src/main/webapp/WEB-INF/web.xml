@@ -4,4 +4,28 @@
 		xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 		version="3.1">
   <display-name>Archetype Created Web Application</display-name>
+  <servlet> <!-- 하나의 서블릿을 정의 -->
+  	<servlet-name>LifecycleTestServlet</servlet-name>
+  	<servlet-class>com.varxyz.jv301.mod004.LifecycleTestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping> <!-- Servlet Mapping이란 특정 servlet을 요청할 때 전체 경로를 url에 써준다 복잡/보안취약으로 간단하게 경로를 표현 -->
+  	<servlet-name>LifecycleTestServlet</servlet-name>
+  	<url-pattern>/LifecycleTestServlet.view</url-pattern><!-- 서블릿을 부를 때 hello.view로 부르겠다. .view 내마음대로 정의`11-->
+  </servlet-mapping>
+  
+  
+    <servlet>
+  	<servlet-name>ServletConfigTestServlet</servlet-name> <!-- 내가 이름을 정의할 수 있다.(이름줄이기 등) -->
+  	<servlet-class>com.varxyz.jv301.mod004.ServletConfigTestServlet</servlet-class>
+  	<init-parm>
+  		<parm-name>season-list</parm-name>
+  		<parm-value>Spring, Summer, Fall, Winter</parm-value>
+  	</init-parm>
+  	
+  </servlet>
+  <servlet-mapping> 
+  	<servlet-name>ServletConfigTestServlet</servlet-name>
+  	<url-pattern>/Config.view</url-pattern>
+  </servlet-mapping>
 </web-app>
+<!-- 브라우저에서 확인 >>>  http://localhost:8080/jv301/ConfigTest.view -->
