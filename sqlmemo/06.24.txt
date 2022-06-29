@@ -1,0 +1,53 @@
+java IO 
+	input stream
+	output stream
+
+	(steam - 바이트의 흐름)
+
+	텍스트에서는 reader / writer
+
+	
+	file은 stream을 모아놓는 포맷, stream덩어리
+	우리는 file을 어떻게 처리할 것인가.
+	
+	
+
+	===> 모두 추상클래스
+	
+
+
+	추상 밑에 실제가 존재
+	
+
+	FileInputStream( 스트링타입의 경로 )	 메소드-> Read( byte )		FileReaderStream( 스트링타입의 경로 )
+	FileOutputStream( 스트링타입의 경로 ) 	 메소드-> Write( byte )		FileWriterStream( 스트링타입의 경로 )
+
+
+	스트링들을 캡슐화 -> File
+
+
+
+	byte
+	바이트는 8bit
+	바이트 , 비트의 차이는 ?
+	
+	스트림은 바이트의 흐름
+	charactor는 2byte
+
+	
+
+
+	API   _  io
+	io는 거의 대부분 버퍼를 쓴다.
+	그냥 read는 1byte로 가는것.
+	버퍼는 가득 채워서가는것.
+
+
+
+
+
+
+
+	read할때  읽은 값을 리턴한다.
+	완료되면 -1을 리턴한다.
+	

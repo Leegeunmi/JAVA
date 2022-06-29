@@ -1,0 +1,11 @@
+withdraw 출금
+balance 잔고
+amount 총액 액수 (입금?
+
+account 계좌
+
+overdraftAmount 당좌대월금액
+
+interestRate 이자율
+
+deposite 보증금

@@ -1,0 +1,34 @@
+DAO패턴
+
+
+
+
+
+프로젝트
+	비지니스목적
+	요구사항
+		1.기능적인 요구사항
+		2.(비기능적요구사항)-속도및만족감?
+		3.소프트웨어 요구사항
+			기능적인것을 만족시킬만한 필요한 소프트웨어
+		4.유스케이스 목록
+		5.클래스모델 등장
+			oop개념을 알고 필요한 객체(클래스)들을 도출
+			
+	이슈
+		관련이슈
+
+
+
+
+
+
+
+
+<!DOCTYPE web-app PUBLIC
+"-//Sun Microsystems, Inc./DTD web application 2.3//EN"
+"http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns = "http://xmlns.jcp.org/xml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

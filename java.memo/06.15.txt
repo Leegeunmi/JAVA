@@ -1,0 +1,282 @@
+static
+	   데이타가 공유되므로 클래스로 바로 사용할 수있다.
+	    로컬변수 사용가능
+	   공유가되어진다는것은 동시접속의 문제를 발생시킨다.
+
+
+parseInt를 클래스로 담을 수 있다.
+	Integer.paeseInt("");
+
+
+
+
+
+
+가장먼저하고, 한번만 할 수 있는 것
+
+static {  
+
+}
+
+
+
+
+
+
+
+
+
+final keyword
+	변수 앞에 final을 쓰면  상수처럼 쓸 것이다.
+	메소드 앞에 쓰면 더이상 오버라이딩 x
+	클래스 앞에 쓰면 더이상 상속 x
+
+		---> 보안관련 내용
+
+
+
+
+
+
+
+	string클래스는 final이다.  더이상 확장할 수 없다.
+
+
+
+
+
+
+
+
+
+private  final  static //
+
+
+
+클래스이름.상수  ---> static
+
+
+class  /  enum  /  interface
+	class 자리에 enum 혹은 interface 들어갈 수 있다.
+
+public enum Suit {
+	SPADES,
+	..
+	..
+	..
+}
+
+enum에 들어간 것만으로 제한한다.
+
+
+
+
+
+import
+
+
+
+import static
+
+
+
+
+
+
+
+oop에서 말하는 추상클래스
+	인스턴스화할 수 없다.
+	1)추상클래스는 객체를 못만든다.
+	2)클래스내에 추상 메서드가 존재하면 그 클래스는 반드시 추상클래스로 선언해야한다.
+	없더라도 할수 있다.
+	바디가 없다. -> 추상메서드
+
+
+	추상클래스만들기
+	public abstrict void DoSomething;
+
+	
+	3)부모가 추상클래스이면 자식도 추상클래스 자식이 추상클래스 되기싫으면 안할 수 있다. 자식이 추상메서드를 구현해야한다. 하지않으면 추상클래스가 되어야한다.
+	-> 추상클래스하기싫으면 오버라이딩해야한다 ->추상메서드를 구현해야한다.
+
+	추상메서드를 따로 모아둔 것 -> 인터페이스
+
+	
+	
+
+
+
+---인터페이스가 나오고
+---자바 엔터프라이즈로
+
+
+
+		
+
+
+
+
+
+
+
+contract
+	명세를 따라서 구현해라
+	animal과 dog사이에서 일어나는일
+	플랫폼 인디펜던트
+	
+
+
+
+
+
+
+
+객체지향설계분석적인 사고
+package mod008;
+
+public class FlyerTest {
+
+	public static void main(String[] args) {
+
+		Flyer f = new Airplane(); //polymorphism
+		//new Airplane이 100000개가 된다는 가정하에
+		//Airplane이 Ufo로 바뀌었을때 100000번 수정해야된다.
+		//Flyer f = getFlyer(); 하게되면
+		//gerFlyer()안에 무엇이 들어가 있는지 모르게 된다.
+		//그말은 이코드는 어떤변경이 있더라도 바뀌지 않는 코드인 것.
+		f.takeoff();
+		f.fly();
+		
+		Flyer f2 = new Bird();
+		f2.takeoff(); 
+	}
+}
+	
+
+
+
+
+
+
+abstract메소드  <  interfance
+
+interface는 다중상속이 가능하다. 변경가능성에 적합하다.
+
+
+
+
+
+
+
+
+참고 : https://suzxc2468.tistory.com/95
+
+
+
+
+
+
+
+
+
+Exceptions (예외처리)
+
+	Integer.parseInt(값이 들어간 변수)하면 문자를 숫자로 바꿈	
+	
+	- checked exception
+	   컴파일때 예외를 처리했는지 안했는지 확인
+	- unchecked exception
+	   문제있을 때 말고는 내버려두는 것 
+	
+
+	 미리 체크하는게 있고 안하는게 있다
+	 이걸 확인하는 방법은 ?
+
+	- unchecked exception은 RuntimeException의 자식들이다. (해도되고 안해도되고)
+	- checked exception은 RuntimeException의 자식이 아니다.
+	
+
+
+
+
+
+try - 예외가 발생할 수도 있는(발생할만한) 코드 작성하는 곳
+       예외발생 가능성 있는 코드
+
+catch - 예외가 발생했을 때 처리 할 코드를 작성하는 곳
+           예외발생 시 처리할 코드
+
+finaly - 예외발생 유무와 관계없이 처리할 코드  (무조건 처리)
+
+(workspace) mod010 - >  try catch를 어떻게 적느냐 (try catch의 범위를 어디까지 잡는냐)에 따라 다른 결과내용
+
+
+
+
+try-catch Statement
+	구체적인 에러내용을 알고싶으면 메소드익셉션을 적고 (적는 순서는 밑으로 갈 수록 자식 ->아버지) 
+	포괄적 에러여부을 알고싶으면 익셉션만 적는다.
+
+
+
+fimaly Clause
+	데이타베이스와 자바는 관계가 없기 때문에 디비쪽에서 연결을 가지고 와야한다. -> 커넥션
+	커넥션은 시스템적으로 부화를 많이 일으키는 작업이다.
+	try에서 연결을 하고 close하면 되는데  에러가 나면  catch에서 끊기기 때문에
+	연결을 끊는 것은 (반드시 실행되는)finaly에서 한다.
+ 
+	
+
+
+Exception은 어디선가는 반드시 catch해야한다. 
+	그런데 무조건 바로 잡는게 능사는 아니다. 적절히 넘겨주고 어디로 넘기고 어디서 에러를 잡을 것인지 생각해봐야한다.
+	에러가 uncheked이면 안잡아도 된다.
+
+내가 만든 예외
+public MyException RuntimeException -> 안잡아도된다.
+public MyException Exception -> 반드시 잡아야된다.
+
+
+
+
+
+
+Creating your own exceptions
+	~.getMessage();
+	super(Message);
+
+
+
+
+
+잘 모르면 ===> try  catch 기억할 것.
+
+
+
+
+		
+
+
+
+try catch의 사용여부는 반드시 Exception을 보고 결정한다.
+내가 만든 Exception이면.? --->
+
+
+
+
+
+
+
+
+예외를 던진다 == 예외가 났다. == throw -> 예외객체를 만든고 사용자가 볼 메세지를 생성자에 넣고 throw new Aexception(" ~~ ");
+예외는 항상 걸리는게 아니고 걸릴 수도 있고 아닐 수도 있다. 
+상단에 public void doSomething() throws  AException,BException
+
+
+
+https://velog.io/@bosl95/%EC%9E%90%EB%B0%94%EC%9D%98-%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%A0%95%EC%9D%98-%EC%98%88%EC%99%B8
+
+
+
+
+
