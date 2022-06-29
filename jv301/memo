@@ -179,3 +179,30 @@ Tomcat
 							-AbcServlet.class
 
 jv301을 묶어서 jv301.war로 압축파일 만듬 _ 컴포넌트
+
+
+
+숙제)
+	지금 우리가 만든 것
+	한쪽은 고객(운영자)()
+	한쪽은 시스템개발
+	고객과 시스템개발자 간에 질문과 답변을 통해 요구사항을 파악해야한다. 15~17개 내로 요구사항 리스트만들기
+	
+
+	
+
+회원가입 폼(add_user.html)
+	회원 아이디 : userId
+	비밀번호 :	passwd
+	이름 : userName
+	주민번호 : ssn(앞의 6자리만)
+	이메일1 : email1(아이디)
+	이메일2 : email2(메일도메인 ex: naver.com, gmail.com ... 셀렉트박스)
+	관심분야 :	connerns(체크박스 : 다중선택가능, ex: Java, Servlet/JSP, EJB, Android, Spring)
+	
+회원가입 서블릿(AddUserServlet.java)
+	회원이 등록한 정보를 받아 회원가입에서 입력한 정보를 출력
+
+회원가입 폼 작성시, 스크립트나 css 사용가능
+체크박스처럼 하나 이상의 값이 전달되는 경우 서블릿에서 파라메터 정보 받는 법
+	String[] concerns = request.getParameterValues("concerns");

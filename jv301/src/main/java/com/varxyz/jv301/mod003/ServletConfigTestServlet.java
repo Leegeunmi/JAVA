@@ -1,4 +1,4 @@
-package com.varxyz.jv301.mod004;
+package com.varxyz.jv301.mod003;
 
 import java.io.IOException;
 import java.io.PrintWriter;
