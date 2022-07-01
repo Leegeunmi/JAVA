@@ -297,6 +297,52 @@ page 지시자
 	
 
 
+
 MVC(사진참고 숙지할것)- view / controller / model
-	                                                                                                                                                                                                                                                                                                                               
+
+MVC패턴
+	-. UI개발자와 비즈니스개발자와의 분업 개발 제공
+	-. 동시 사용자 증가에 따른 시스템 확장성 제공
+	-. Low coupling, High cohesion을 통한 시스템 유지 보수의 편리성 제공
+		- 한쪽의 변화에 대해 다른한쪽이 그 변화를 적게 가져가는 것 - Low coupling
+		
+모델 2아키텍처
+	-. 썬 마이크로시스템의 베스트 가이드라인
+	-. MVC패턴 구현을 위한 베스트 컴포넌트
+		Model 		: (프라이머리)Java, Java Beans, EJB  (세컨더리)DAO, DTO
+		View		: 		   HTML, JSP, XML                 Servlet
+		Controller 	:          Servlet						  JSP     
+		
+컨트롤러의 주요 역할
+	서블릿에 의해 구현될 컨트롤러는 다음과 같은 역할을 처리한다.
+	-. 클라이언트의 요청 파라메타 정보를 구한다. (getParameter / getParameterValues / getParameterNames)
+	-. 요청 파라메타에 대한 유효성 검증 및 데이터 변환 작업을 처리한다. (스프링은 이 내용을 따로 한다. / 시간이 없을때는 스크립트에서)
+	-. 요청 처리에 필요한 비즈니스 오퍼레이션을 호출한다.
+	-. 요청 처리 결과에 따라 클라이언트에세 보여줄 뷰를 선택한다.
 	
+서블릿 커뮤니케이션
+	-. 서블릿은 다른 서블릿과 커뮤니케이션이 일반 객체와 달리 제약적이다.
+		- 사용자가 서블릿 갹체를 직접 생성하지 않는다.
+		- 기본적으로 특정 서비스를 위해 하나의 서블릿 인스턴스를 생성한다.
+	-. 따라서 요청 처리를 다른 자원으로 위임할 수 있는 방법이 필요하다. (DB는 서버다운할 때 데이타베이스를 보관한다.)
+
+속성 *Scope과 RequestDispatcher
+	-. RequestDispatcher인터페이스는 서블릿에서 다른 페이지로 포워드할 수 있는 메소드를 제공
+	-. 속성 scope은 다른 서블릿과 공유해야 할 데이터를 임시적으로 저장할 수 있는 기능을 제공
+	-. request, session, application, page (맵에 데이터보관하는 건데 언제 사라지는지 차이가 있다)
+					리퀘스트사이클 / 지금은 리퀘스트만 알아둘것
+					request scope - 요청과 응답사이(request) 시간이 길다  
+					session scope - 로그아웃해야 사라짐
+					application scope - 로그아웃해도 안사라짐 여러사람 들어와도 남아있음 애플리케이션 셧다운 되야 사라짐
+					   page scope - 페이지 벗어나면 사라짐(잘 사용하진 않음)
+				
+			setAttribute(String name, Object obj)
+			getAttribute(String name)
+			
+			-- 서블릿 --
+			request.setAttribute("userName", userName);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
+			dispatcher.forward(request, response);
+			
+			-- JSP --
+			String userName = (String)resquest.getAttribute("userName");                                                                                                                                                                                                                                                                                                   

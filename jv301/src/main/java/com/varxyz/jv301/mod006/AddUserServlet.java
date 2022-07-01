@@ -46,10 +46,13 @@ public class AddUserServlet extends HttpServlet { //controller
 		
 		RequestDispatcher dispatcher = null;	
 		if(errorMsgs.size() > 0) {
-			dispatcher =request.getRequestDispatcher("error.jsp");
+			request.setAttribute("IDError", errorMsgs);
+			dispatcher = request.getRequestDispatcher("error.jsp");
 			dispatcher.forward(request, response);
 			return;
 		}
+		
+		
 		User user = new User();
 		user.setUserId(userId);
 		user.setPasswd(passwd);
@@ -62,8 +65,11 @@ public class AddUserServlet extends HttpServlet { //controller
 		
 		
 //		4. NextPage
-		dispatcher = request.getRequestDispatcher("success.jsp");
+		request.setAttribute("userName", userName);
+		request.setAttribute("userId", userId);
+		request.setAttribute("passwd", passwd);
+		dispatcher = request.getRequestDispatcher("success.jsp"); //getRequestDispatcher안에 forward메소드
+		dispatcher = request.getRequestDispatcher("error.jsp");
 		dispatcher.forward(request, response);
-		//errorpage
 	}
 }

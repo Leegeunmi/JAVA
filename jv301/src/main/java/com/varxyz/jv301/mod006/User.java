@@ -7,6 +7,7 @@ public class User {//모델
 	private String ssn;
 	private String addr;
 	private String email;
+	//private했기때문에 getter setter가 필요한것
 	
 	public User() {
 		
