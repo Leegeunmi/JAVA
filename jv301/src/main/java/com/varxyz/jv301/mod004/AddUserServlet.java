@@ -58,11 +58,12 @@ public class AddUserServlet extends HttpServlet {
 	out.println("<head><title>" + pagetitle + "</title></head>");
 	out.println("<body>");
 	out.println("<h3>회원가입 완료! \""+ name +"\"님 환영합니다!</h3>");
-	out.println(id);
-	out.println(passwd);
-	out.println(name);
-	out.println(ssn);
-	out.println(email1 +"@"+ email2);
+	out.println("ID : " + id + "<br>");
+	out.println("PW : " + passwd + "<br>");
+	out.println("NAME : " + name + "<br>");
+	out.println("SSN : " + ssn + "<br>");
+	out.println("E-MAIL : " + email1 + "@" + email2 + "<br>");
+	out.println("CONCERNS : ");
 	for (String concern : concerns) {
 		out.println(concern);
 	}

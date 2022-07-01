@@ -206,3 +206,97 @@ jv301을 묶어서 jv301.war로 압축파일 만듬 _ 컴포넌트
 회원가입 폼 작성시, 스크립트나 css 사용가능
 체크박스처럼 하나 이상의 값이 전달되는 경우 서블릿에서 파라메터 정보 받는 법
 	String[] concerns = request.getParameterValues("concerns");
+	
+	
+
+get방식하면 주소창에 데이터가 다 나온다..
+개인정보나 데이터 양이 많을 때 post방식 사용
+
+
+
+
+
+
+
+
+
+
+
+JSP (Java Server Page)
+	-. 사용자를 위한 동적 뷰를 제공한다.
+	-. 프리젠테이션 코드를 서블릿이 아닌 JSP를 통해 작성함으로써 코드 작성을 간소화
+	-. 서블릿과 JSP를 상호보완적으로 사용함으로써 Model2 아키텍쳐 기반의 애플리케이션을 작성한다.
+	-. 웹 디자이너와 프로그래머의 역할 구분을 보다 증진시킨다.
+	
+JSP 특징
+	-. 기본적으로 JSP는 서블릿 인스턴스로 변환된다. (동일 테크놀리지)
+	-. JSP페이지를 작성한 후 저장하면 컨테이너에 의해 (java)소스변환, 컴파일, 실행이 자동으로 이뤄진다.
+		hello.jsp  ===>  hello.java  ===>  hello.class  ===>   실행(서블릿)
+		       (translation)       (compile)          (runtime)
+	-. JSP는 서블릿보다 작성 과정이 간단하지만 디버깅은 상대적으로 어렵다.
+		JSP 단점 : 톰캣없이는 브라우저를 볼 수 없다. 레이아웃을 제공하지 않는다.
+		
+JSP 라이프사이클
+	-. 기본적으로 서블릿과 동일
+	-. jspInit()메소드
+			초기화, 오버라이딩
+	-. jspDestroy()메소드
+			소멸, 해제, 오버라이딩
+	-. _jspService()메소드
+			jsp페이지 자신, 오버라이딩 불가능
+
+JSP 파일 저장 위피
+	-. JSP는 html과 동일 위치상에 저장 가능  //현재는 여기 저장할 예정
+	-. WED_INF의 하위 폴더에서도 저장 가능   //spring 때는 여기 저장할 예정
+	
+JSP 주요 태그
+	주석		 :	JSP주석 <&-- --&>은 브라우저에서 안보인다.
+				HTML주석 <-- -- >은 브라우저에서 보인다.
+				등 다른 주석들도 사용가능
+	
+	지시자	 :	<%@ page %>, <%@ include %>, <%@ taglib %> 첫줄에 지시 / import도 지시자 안에 쓴다.
+	(directive)
+	
+	스크립팅	 :	<%! 멤버선언 %>, <% 자바코드 %>, <%= 출력 %>
+	엘리먼트
+	
+	표현식	 :	${표현식}
+	
+	커스텀 태그 :	JSTL
+	
+page 지시자
+	import = "java.util.*"
+	contentType = "text/html; charset=UTF-8"  	MIME타입과 문자 인코딩 설정
+	session = true (디폴트값은 true)				해당페이지에서 세션을 지원하려면 true
+	errorPage = "에러를 처리할 페이지"
+	isErrorPage = "true" (디폴트값은 false)			이 값이 true일 때 exception내장 객체 사용가능
+	pageEncoding								JSP페이지의 문자 인코딩을 정의(ISO-8859-1)
+	(그 밖에 isELIgnored, isThreadSafe, language, extends, butter, autoFlush, info)extends는 절대 쓰면안된다.
+	
+스크립틀릿
+	JSP페이지내에서 자바코드<% %>를 사용할 수 있도록한다. 
+	주의할 점은 스크립틀릿 내에 자바코드와 HTML코드는 분리되어서 처리되어야한다.
+	스크립틀릿 코드의 남용은 코드에 대한 가독성을 떨어뜨리고 유지보수를 어렵게 한다.
+	<%
+		if(age > 10){
+	%>
+			You need a ticket.
+	<%	}else{
+	%>
+			You are free.
+	<%
+		}
+	%>
+	
+표현식
+	Ten is <%= (2 * 5) %>
+	Thank you, <b> <%= name %> </b> for registration.
+	The Current day and time is <%= new java.util.Date() 0.0. %>
+	
+	
+	
+
+
+MVC(사진참고 숙지할것)- view / controller / model
+	                                                                                                                                                                                                                                                                                                                               
+	
