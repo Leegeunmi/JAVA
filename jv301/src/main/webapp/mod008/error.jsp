@@ -15,19 +15,18 @@
 	</jsp:include>
 </div>
 <div id="content-wrapper">
-	<h3>다음과 같은 에러가 발생했습니다.</h3>
-	<ul>
-	<%	
-		@SuppressWarnings("unchecked")
-		List<String> errorMsgs = (List<String>)request.getAttribute("errorMsgs");
-		for(String errorMsg : errorMsgs){	
-	%>
-			<li><%=errorMsg%></li> 
-	<%
-		}
-	%>
-	${errorMsgs} <!-- 위 for문 내용을 EL(다음코드)로 쓸 수 있다. -->
-	</ul>
+	<c:if test="${not empty errorMsgs}">
+		<h3>다음과 같은 에러가 발생했습니다.</h3>
+		<ul>
+			<c:forEach var ="errorMsg" items="${errorMsgs }">
+				<li>${errorMsg}</li>
+			</c:forEach>
+			<c:when test=""> <!-- if else와 비슷한 개념 -->
+				<c:choose></c:choose> 
+				<c:otherwise></c:otherwise>
+			</c:when>
+		</ul>
+	</c:if>
 </div>
 <div id="footer">
 	<%@ include file="/incl/footer.jsp"%>
