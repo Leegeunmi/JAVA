@@ -20,7 +20,7 @@ public class InitalizeCourseListener implements ServletContextListener{
 		System.out.println("contextInitalized() method called");
 		
 		ServletContext context = event.getServletContext();
-		InputStream is = null; //text읽을때 한줄 단위로 읽어 - 버퍼가 내장되어 있는 stream으로 - charactor로 최적화된 버퍼 스트림 - 버퍼드리더
+		InputStream is = null; //text읽을때 한줄 단위로 읽어 - 버퍼가 내장되어 있는 stream으로 - 버퍼스트림 - charactor로 최적화된 버퍼 스트림 - 버퍼드리더
 		BufferedReader reader = null;
 		List<String[]> contentList = new ArrayList<>();//탭에 대한 정보 받기(1)
 		try {
