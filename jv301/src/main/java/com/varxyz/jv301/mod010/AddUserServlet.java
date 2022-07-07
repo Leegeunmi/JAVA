@@ -12,11 +12,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/mod006/add_user.do")
+@WebServlet("/mod010/add_user.do")
 public class AddUserServlet extends HttpServlet { //controller
 	private static final long serialVersionUID = 1L;
 	
-	private UserService userService = new UserService();
+	private UserService userService = new UserService(null);
 	
 	public void init(ServletConfig config) throws ServletException {
 		
