@@ -3,6 +3,7 @@ package com.varxyz.jv301.mod010;
 import java.util.HashMap;
 import java.util.Map;
 
+//DataSource, InitalizeDataSourceListener와 관련
 public class NamingService {
 	private static NamingService obj = new NamingService();
 	private Map<String, Object> nameValuePairs;
@@ -27,7 +28,8 @@ public class NamingService {
 		return nameValuePairs.get(name);
 	}
 	
-	public void remoceAttribute(String name) {
+	public void removeAttribute(String name) {
 		nameValuePairs.remove(name);
 	}
 }
+ 

@@ -18,7 +18,7 @@
 <div id="wrapper">
 	<div id="header">
 		<jsp:include page="/incl/banner.jsp">
-		<jsp:param name="subtitle" value=" mod007 : Java Beans and include" />
+		<jsp:param name="subtitle" value=" mod010 : Java Beans and include" />
 		</jsp:include>
 	</div>
 	<div id="content-wrapper">
@@ -29,6 +29,7 @@
 		<div>이름<br><input type="text" name="userName"/></div>
 		<div>주민번호<br><input type="text" name="ssn"/></div>
 		<div>주소<br><input type="text" name="addr1"/></div>
+		<div>상세주소<br><input type="text" name="addr2"/></div>
 		<div>이메일<br><input type="text" name="email1"/>@
 			<select name="email2">
 			<option value="">선택</option>
@@ -47,4 +48,4 @@
 </body>
 </html>
 
-<!-- http://localhost:8080/jv301/mod007/add_user.jsp -->
+<!-- http://localhost:8080/jv301/mod010/add_user.jsp -->

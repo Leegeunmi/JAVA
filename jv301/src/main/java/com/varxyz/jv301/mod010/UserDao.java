@@ -18,7 +18,7 @@ public class UserDao {
 	}
 	
 	public void addUser(User user) {
-		String sql = "INSERT INTO User(userId, passwd, userName, ssn, addr, email)"
+		String sql = "INSERT INTO UserList (userId, passwd, userName, ssn, addr, email)"
 				+ " VALUES (?, ?, ?, ?, ?, ?)";
 		try {
 			Connection con = null;

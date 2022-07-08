@@ -11,6 +11,7 @@
 </style>
 <body>
 	<h3>MY PAGE</h3>
- 	<button><a href='<c:url value="/mod010/logout"/>'>로그아웃</a></button>
+	<a href='<c:url value="/mod010/logout"/>'>로그아웃</a>
+	<label>Last Access Time : </label> ${lastAccessTime}
 </body>
 </html>

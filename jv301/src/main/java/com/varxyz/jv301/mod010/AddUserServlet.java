@@ -16,10 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 public class AddUserServlet extends HttpServlet { //controller
 	private static final long serialVersionUID = 1L;
 	
-	private UserService userService = new UserService(null);
+	private UserService userService;
 	
 	public void init(ServletConfig config) throws ServletException {
-		
+		userService = new UserService();
 	}
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -40,14 +40,14 @@ public class AddUserServlet extends HttpServlet { //controller
 		List<String> errorMsgs = new ArrayList<>();
 		if(userId == null || userId.length() == 0) {
 			errorMsgs.add("id는 필수입력 정보입니다.");
-		}else if(passwd == null || passwd.length() == 0) {
+		}if(passwd == null || passwd.length() == 0) {
 			errorMsgs.add("password는 필수입력 정보입니다.");
 		}
 		
 		RequestDispatcher dispatcher = null;	
 		if(errorMsgs.size() > 0) {
-			request.setAttribute("IDError", errorMsgs);
-			dispatcher = request.getRequestDispatcher("error.jsp");
+			request.setAttribute("errorMsgs", errorMsgs);
+			dispatcher = request.getRequestDispatcher("/mod007/error.jsp");
 			dispatcher.forward(request, response);
 			return;
 		}
@@ -57,19 +57,17 @@ public class AddUserServlet extends HttpServlet { //controller
 		user.setUserId(userId);
 		user.setPasswd(passwd);
 		user.setUserName(userName);
+		user.setSsn(ssn);
 		user.setAddr(addr1 + " " + addr2);
 		user.setEmail(email1 + "@" + email2);
 		
 //		3. 비지니스 서비스 호출
 		userService.addUser(user);
+		request.setAttribute("user", user);
 		
 		
 //		4. NextPage
-		request.setAttribute("userName", userName);
-		request.setAttribute("userId", userId);
-		request.setAttribute("passwd", passwd);
-		dispatcher = request.getRequestDispatcher("success.jsp"); //getRequestDispatcher안에 forward메소드
-		dispatcher = request.getRequestDispatcher("error.jsp");
+		dispatcher = request.getRequestDispatcher("/mod007/success.jsp"); //getRequestDispatcher안에 forward메소드
 		dispatcher.forward(request, response);
 	}
 }

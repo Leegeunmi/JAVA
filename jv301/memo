@@ -756,3 +756,8 @@ Session제거
 	usecase 다이어그램은 최소한의 소통이고 본 모델은 글
 	실패시나리오를 적어볼 것 (버그최소화를 위한)
 	분석할 것	
+	사용자입장에서 목적에 의한 결과 가 곧 usecase이름
+	usecase안에 activity
+		ex) usecase : 예약하기
+			activity : 예약하는 과정 1. 2. 3... 
+	실패시나리오도 usecase안에	

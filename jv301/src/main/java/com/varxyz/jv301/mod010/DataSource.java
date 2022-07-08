@@ -6,6 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+//DataSource와 InitalizeDataSourceListener는 JDBC연동 관련내용이다.
+//JDBC(JavaDatabaseConnectivity): 자바에서 데이터베이스 접속할 수 있도록 하는 java API
+//자바프로그램이 데이터베이스와 연결되어 데이터를 주고 받을 수 있게 해주는 프로그래밍 인터페이스
+//역할: 통역자역할-응용프로그램과 DBMS간의 통신을 중간에서 번역해주는 역할
 public class DataSource {
 	private String jdbcDriver;
 	private String jdbcUrl;

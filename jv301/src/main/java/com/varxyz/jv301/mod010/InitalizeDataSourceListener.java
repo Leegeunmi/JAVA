@@ -18,9 +18,13 @@ public class InitalizeDataSourceListener implements ServletContextListener {
 
 	private static final String JDBC_FILE_PATH = "/WEB-INF/classes/jdbc.properties";
 
-	public void contextInitialized(ServletContextEvent event)  {  //web application 초기화 관련 작업 메서드    	
-    	ServletContext context = event.getServletContext();
+	//contextListener를 생성하기 위해서는 ServletContextListner구현하는 클래스를 만들어야한다. 아래 두 메소드를 만들어야한다.
+	public void contextInitialized(ServletContextEvent event)  {  //web application 초기화 관련 작업 메서드 (앱시작 시 호출)  	
+    	//컨텍스트 가져오기
+		ServletContext context = event.getServletContext();
     	InputStream is = null; //InputStream은 데이터를 읽는다.
+    	
+    	//컨텍스트 속성 설정
     	try {
     		is = context.getResourceAsStream(JDBC_FILE_PATH);
     		Properties prop = new Properties();
@@ -44,7 +48,7 @@ public class InitalizeDataSourceListener implements ServletContextListener {
     	
     }
 	
-    public void contextDestroyed(ServletContextEvent event)  { //web application 종료 직전에 실행되는 메서드
+    public void contextDestroyed(ServletContextEvent event)  { //web application 종료 직전에 실행되는 메서드 (앱중지 시 호출)
     	System.out.println("contextDestroyed() method called");
     }
     

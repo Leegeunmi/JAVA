@@ -3,6 +3,7 @@ package com.varxyz.jv301.mod010;
 import java.util.List;
 
 public class UserService {//비지니스서비스업무담당
+	private static UserService service = new UserService();
 	public UserDao userDao;
 	
 	public UserService(UserDao userDao) {
