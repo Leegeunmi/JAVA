@@ -12,6 +12,11 @@ public class AppMain {
 		
 		Foo foo = context.getBean("foo", Foo.class);	
 		System.out.println("foo" + foo);
+		
+		Foo foo2 = context.getBean("foo2", Foo.class);	
+		System.out.println("foo" + foo);
+		//위와 같은 값이 나온다 (같은 hashCode)  -> 같은 객체 재사용
+		
 		context.close();
 		
 		

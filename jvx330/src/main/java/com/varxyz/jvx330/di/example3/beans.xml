@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- name은 메소드이름 -->
+	<bean name="memberService" class="com.varxyz.jvx330.di.example3.MemberService">
+		<constructor-arg name="memberDao" ref="memberDao"/>
+	</bean>
+	
+	<bean name="memberDao" class="com.varxyz.jvx330.di.example3.MemberDao"/>
+
+</beans>

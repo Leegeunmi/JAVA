@@ -7,5 +7,9 @@
 		<constructor-arg ref="bar"/><!-- 참조값으로 bar를 넣음 빈이 빈끼리 xml을 통해 참고관계를 맺는다-->
 	</bean>
 	
+		<bean name="foo2" class="com.varxyz.jvx330.di.example1.Foo">
+		<property name="bar" ref="bar"/>
+	</bean>
+	
 	<bean name="bar" class="com.varxyz.jvx330.di.example1.Bar"/>
 </beans>
