@@ -7,6 +7,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import com.varxyz.jvx330.jdbc.example1.AddCustomerDao;
 import com.varxyz.jvx330.jdbc.example1.AddCustomerDataSourceDao;
 import com.varxyz.jvx330.jdbc.example2.CustomerDao;
+import com.varxyz.jvx330.jdbc.example5.AccountDao;
+import com.varxyz.jvx330.jdbc.example5.AddAccountDao;
 
 public class DataSourceConfig {
 	

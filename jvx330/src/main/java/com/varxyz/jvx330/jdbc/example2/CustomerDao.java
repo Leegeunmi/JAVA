@@ -19,10 +19,13 @@ public class CustomerDao {
 		jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 	
-	public List<Customer> findAllCustomers() {//개발자의 사정에 맞게 쓰는 부분 (쿼리사용)
+	//테이블 SELECT하는 방식 --------
+	//사정에 맞게 쓰는 부분 (쿼리사용 - query / queryForObject)
+	//프로젝트를 해가며 요구사항이 점점 복잡해지는 가운데 그에 적절한 쿼리가 만들어져야한다.
+	public List<Customer> findAllCustomers() {
 		String sql = "SELECT cid, email, passwd, name, ssn, phone, regDate FROM Customer";
 		
-		return jdbcTemplate.query(sql, new RowMapper<Customer>() {
+		return jdbcTemplate.query(sql, new RowMapper<Customer>() {//query - 여러번 여러개 써도 가능
 
 			@Override
 			public Customer mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -56,7 +59,7 @@ public class CustomerDao {
 		String sql = "SELECT cid, email, passwd, name, ssn, phone, regDate"
 				+ " FROM Customer WHERE email=?";
 		
-		return jdbcTemplate.queryForObject(sql, new RowMapper<Customer>() {
+		return jdbcTemplate.queryForObject(sql, new RowMapper<Customer>() {//queryForObject는 하나만 호출 (유니크한 것에 사용)
 
 			@Override
 			public Customer mapRow(ResultSet rs, int rowNum) throws SQLException {

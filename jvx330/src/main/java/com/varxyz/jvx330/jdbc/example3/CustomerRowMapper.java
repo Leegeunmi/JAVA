@@ -1,3 +1,4 @@
+
 package com.varxyz.jvx330.jdbc.example3;
 
 import java.sql.ResultSet;
@@ -8,7 +9,7 @@ import org.springframework.jdbc.core.RowMapper;
 import com.varxyz.jvx330.jdbc.Customer;
 
 public class CustomerRowMapper implements RowMapper<Customer>{
-	
+	//리펙토링한것(?)
 	@Override
 	public Customer mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Customer customer = new Customer(rs.getLong("cid"),

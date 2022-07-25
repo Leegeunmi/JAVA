@@ -24,4 +24,8 @@ public class Customer {
 	public Customer() {
 		super();
 	}
+	
+	public Customer(long cid) {
+		this.cid = cid;
+	}
 }

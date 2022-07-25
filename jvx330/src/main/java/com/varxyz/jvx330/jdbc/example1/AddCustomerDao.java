@@ -20,6 +20,7 @@ public class AddCustomerDao {
 		jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 	
+	//테이블 INSERT하는 방식 --------
 	//1번째 유형
 	public void addCustomer(Customer customer) {
 		String sql = "INSERT INTO Customer (email, passwd, name, ssn, phone)"
