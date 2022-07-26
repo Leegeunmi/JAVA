@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+body {
+  background: #eae9e9;
+  color: #2e2e2e;
+}
+
+p {
+	font-size: 14px;
+}
+
+input {
+	color: brown;
+	border-color: lightgreen;
+	background: ligtjgreen;
+}
+
+label {
+	color: brown;
+}
+
+h4 {
+	color: red;
+}

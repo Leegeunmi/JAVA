@@ -1,0 +1,949 @@
+WEB
+
+	web / internet
+	HTTP / HTML 	http프로토콜
+			HTTP(Hypertext Transfer Protocol)는 인터넷상에서 데이터를 주고 받기 위한 서버/클라이언트 모델을 따르는 프로토콜이다.
+			애플리케이션 레벨의 프로토콜로 TCP/IP위에서 작동한다.
+
+			하이퍼텍스트 기반으로(Hypertext) 데이터를 전송하겠다(Transfer) = 링크기반으로 데이터에 접속하겠다는 의미이다.
+			
+			Connectionless & Stateless
+			HTTP는 Connectionless 방식으로 작동한다. 
+			서버에 연결하고, 요청해서 응답을 받으면 연결을 끊어버린다.
+ 			https://shlee0882.tistory.com/107
+			1.인증받은회원인가 2.지속적으로 사용한자인가
+			연결이 된건 아니지만 연결이 되어 보이게 한다. (로그인해야 연결)
+
+			HTML은 정적문서이고 동적으로 만들기위해서 script등장
+			정적문자를 애플리케이션화(동적결정에의해 필요에따라 처리하겠다)하고자 하는 것이 http
+			http는 html과 같은 정적문서를 동적으로 보이게 하기위한다._애플리케이션화 하고있다.
+			초기에는 장점이였으나 갈수록 단점화..?
+
+			멀티스레드
+			요청과 응답	stateless
+			서버가 가지고 있는 stream을 밀어내주는것이 html
+			브라우저는 html을 파싱한다.
+
+			쉬운 프로그램 방식	위직방식
+			미래에는 컴포넌트화될것 (지금도 컴포넌트화 하고있다)
+			*우리의 목적은 웹컴포넌트를 만드는것이다.
+			모듈들을 부품화한다.
+			클래스가 모여 컴포넌트 - 컴포넌트가 모여 애플리케이션
+			완전한 재사용은 애플리케이션자체를 재사용하는 것.
+			
+
+			HTTP	요청)	- 요청메소드(get,post,put...)
+					- url(특정문서,자원이있는위치)
+					- 전달해야할 parameter
+						브라우저에서 서버로 유알엘통해서 연결할때 get/post방식으로 연결한다.
+						연결할때 파라메터를 전달한다. 
+			
+				응답)	- 응답코드(상태코드)ex) 404 .. 403..500....
+					- 컨텐츠타입(텍스트,오디오,영상...타입)
+					- 컨텐츠(바디)_프로토콜(규격)안에 바디
+			html은 서버에 있다. script도 서버에 있다. 동작은 브라우저에서
+	
+
+	servlet / JSP	있는것도 동작,처리도 서버에서 하고 결과만 브라우저로 
+	Model
+	WAS
+
+
+
+웹 사이트와 URL
+	웹 사이트는 정적 문서로 구성된 사이트
+
+	URL 구성
+		protocol://host:port/path/file  -> 기본구성
+		http://www.season.com:80/spring/april/html
+		http://www.season.com/spring/april/html
+		http://www.season.com -> 생략이 됨
+
+	파라메터
+		주소 뒤에 추가로 붙는 데이터
+		?(물음표)를 사용해서 주소 경로와 구분 (?부터 파라메터 시작)
+		http://www.season.com/spring/april/html?weather=sunny&temp=25
+
+	HTTP 메소드 (GET)
+		요청 방식에 따라 GET/POST로 구분
+		GET 요청 방식
+			단순히 서버에게 자원(HTML, 이미지, 문서)을 URL 통해 요청하는 방식
+			필요한 데이터를 URL 뒤에 덧붙여 전송
+			데이터 크기 제약이 있으며 북마킹을 허용(지원)
+			브라우저 캐싱에 의한 보안 문제를 야기한다.(로그인했을때 주소창에 아이디비번 노출 등)? ->post를 써야한다.
+		POST 요청방식
+			주로 폼에서 사용되는 방식으로 웹 컨텐츠의 내용을 변경하기 위해 사용
+			get은 뭔가를 읽어온다. post는 뭔가를 바꾼다.(정보를 새로 db에 넣는다./로그인은 보안문제로 post사용)
+			get을 써야할 때 post를 쓰면? - 북마킹이 안된다. / 검색이 안된다.
+			필요한 데이터를 HTTP요청의 메세지 바디를 통해 전송
+			데이타의 양이 많거나 URL에 노출되지 말아야할 때 사용
+			
+
+웹 애플리케이션
+	웹 사이트 + Dynamic working service (CGI Processing)
+	CGI (Common Gateway Interface)
+		- 웹서버에 존재하는 프로그램을 호출할 수 있는 기술
+		   원격호출 어떻게 호출하는가..? 그것에 대한 표준화를 한 것이 CGI	
+
+		- 웹 애플리케이션이 동작되는 서버 - WAS
+		- Perl, C 등 다양한 언어로 작성되었었다. 
+		- 위를 지금 거의 안쓰는 이유는 Process loading방식이기 때문
+			프로세스의 중요성***
+
+	ASP.NET, Servlet/JSP
+
+
+
+웹 컨테이너
+	웹 컨테이너가 있으면 웹 컴포넌트가 있다.
+	servlet/JSP가 웹 컴포넌트
+	tomcat은 웹 컨테이너
+
+	컴포넌트 - 생각을 재사용 ..?
+	프레임 - GUI컨테이너 - 컨테이너 안에 컴포런트
+	컴포런트 -파일    /     컨테이너 - _ ?
+
+	- 웹컴포넌트(servlet/jsp 등) 실행 관리를 위한 프레임워크
+	   ex) 톰캣, 레진, Glassfish 등
+	- 서블릿과 웹 서버간의 커뮤니케이션 지원
+		(웹서버 - 정적문서처리  웹컨테이너- 자바기술을 사용하기위해 -동적문서처리)
+		톰캣이 어느정도 웹서버 역할을 한다. 대부분 동적문서처리
+		(우리는 대부분 동적문서를 할꺼라 톰캣만으로 가능할것..)
+	 - 서블릿 라이프사이클 관리 
+			(참고 : 로컬베리어블은 메소드 밖으로 가면 사라진다)
+		작업관리자를 켜둘것
+	- 요청에 대한 멀티 스레딩 지원
+		스레드를 컨테이너가 자체적으로 제공해준다.
+	- 보안 및 오류에 대한 처리 지원
+		웹컨테이너 웹컴포넌트를 잘 알면 전체를 이해 하기 좋다..
+
+
+servlet -> server + let 작은 서버
+	doGet / doPost 오버라이딩 하기
+	
+
+
+Servlet 인터페이스와 서블릿 라이프사이클
+	init()/service()/destory()/getServletConfig()
+	
+	1. 요청에 의해 특정 서블릿 호출
+	2. 해당 서블릿 생성 및 로드 (여기까지는 자바와 동일)
+	3. init() 메소드 호출 (최초 1회 호출)
+	4. service() 메소드 호출 (doGet/doPost)
+	5. destroy() 메소드 호출 (destroy()가 오버라이딩 되었다는 가정하에 service()가 소멸 되기 전 destory()를 호출한다.)
+						  (톰캣을 내릴때 destroy()호출을 확인할 수 있다. 통상적으로 확인하기 어려움)
+						- 최초 사용자에 대한 이야기 / 최초 이후에는 init()호출안함
+						 
+	init() service() destroy()에 각각 무엇을 적어야할까?
+	init() - 필요한 초기화 작업들
+	service() -
+	destroy() - 초기화 했던 작업들을 제거할때 사용
+	
+	init_초기화 desroy_파괴하다
+	
+
+인터페이스 - 객체를 만들수없다 추상화할수 없다?
+
+
+false로 두고 
+
+
+https://javaee.github.io/javaee-spec/javadocs/
+
+os공부 필요
+
+
+******반드시 기억할 것******
+Tomcat
+	-webapps(웹애플리케이션)
+		-root
+		-jv301 (패키지 아니고 애플리케이션jv301) -properties-web project settings-
+				http://localhost:8080/root
+				http://localhost:8080/jv301
+				http://localhost:8080/jv301/mod004/abc.html
+			-index.html(홈페이지는 대부분 인덱스페이지)
+			-[폴더](ex)_mod004)
+				-index(ex)_abc.html)
+				-index
+			-[폴더]
+				-index
+				-index       	 css /javascrpt 등이 WEB-INF위에 있다.
+			-[WEB-INF](대분자구분) *외부로부터 직접적 접근을 허용하지 않는다. /servlet/com.varxyz.js301.mod004/AbcServlet .. 그러나 보안문제로 매핑을 한다. /mod004/abc.view로 한다.
+								 http://localhost:8080/jv301/mod004/abc.view
+								 http://localhost:8080/jv301/config.view (.view는 내가 정의)
+				-web.xml(D.D)
+				-classes
+					-java (servlet..)
+					-com.varxyz.js301.mod004
+						-mod004
+							-AbcServlet.class
+
+jv301을 묶어서 jv301.war로 압축파일 만듬 _ 컴포넌트
+
+
+
+숙제)
+	지금 우리가 만든 것
+	한쪽은 고객(운영자)()
+	한쪽은 시스템개발
+	고객과 시스템개발자 간에 질문과 답변을 통해 요구사항을 파악해야한다. 15~17개 내로 요구사항 리스트만들기
+	
+
+	
+
+회원가입 폼(add_user.html)
+	회원 아이디 : userId
+	비밀번호 :	passwd
+	이름 : userName
+	주민번호 : ssn(앞의 6자리만)
+	이메일1 : email1(아이디)
+	이메일2 : email2(메일도메인 ex: naver.com, gmail.com ... 셀렉트박스)
+	관심분야 :	connerns(체크박스 : 다중선택가능, ex: Java, Servlet/JSP, EJB, Android, Spring)
+	
+회원가입 서블릿(AddUserServlet.java)
+	회원이 등록한 정보를 받아 회원가입에서 입력한 정보를 출력
+
+회원가입 폼 작성시, 스크립트나 css 사용가능
+체크박스처럼 하나 이상의 값이 전달되는 경우 서블릿에서 파라메터 정보 받는 법
+	String[] concerns = request.getParameterValues("concerns");
+	
+	
+
+get방식하면 주소창에 데이터가 다 나온다..
+개인정보나 데이터 양이 많을 때 post방식 사용
+
+
+
+
+
+
+
+
+
+
+기본적인 레이아웃 지정한 후 서브페이지 작성하는데
+JSP자체에선 레이아웃 제공하지 않는다. 할때마다 레이아웃을 만들어야한다.
+
+JSP (Java Server Page)
+	-. 사용자를 위한 동적 뷰를 제공한다.
+	-. 프리젠테이션 코드를 서블릿이 아닌 JSP를 통해 작성함으로써 코드 작성을 간소화
+	-. 서블릿과 JSP를 상호보완적으로 사용함으로써 Model2 아키텍쳐 기반의 애플리케이션을 작성한다.
+	-. 웹 디자이너와 프로그래머의 역할 구분을 보다 증진시킨다.
+	
+JSP 특징
+	-. 기본적으로 JSP는 서블릿 인스턴스로 변환된다. (동일 테크놀리지)
+	-. JSP페이지를 작성한 후 저장하면 컨테이너에 의해 (java)소스변환, 컴파일, 실행이 자동으로 이뤄진다.
+		hello.jsp  ===>  hello.java  ===>  hello.class  ===>   실행(서블릿)
+		       (translation)       (compile)          (runtime)
+	-. JSP는 서블릿보다 작성 과정이 간단하지만 디버깅은 상대적으로 어렵다.
+		JSP 단점 : 톰캣없이는 브라우저를 볼 수 없다. 레이아웃을 제공하지 않는다.
+		
+JSP 라이프사이클
+	-. 기본적으로 서블릿과 동일
+	-. jspInit()메소드
+			초기화, 오버라이딩
+	-. jspDestroy()메소드
+			소멸, 해제, 오버라이딩
+	-. _jspService()메소드
+			jsp페이지 자신, 오버라이딩 불가능
+
+JSP 파일 저장 위피
+	-. JSP는 html과 동일 위치상에 저장 가능  //현재는 여기 저장할 예정
+	-. WED_INF의 하위 폴더에서도 저장 가능   //spring 때는 여기 저장할 예정
+	
+JSP 주요 태그
+	주석		 :	JSP주석 <&-- --&>은 브라우저에서 안보인다.
+				HTML주석 <-- -- >은 브라우저에서 보인다.
+				등 다른 주석들도 사용가능
+	
+	지시자	 :	<%@ page %>, <%@ include %>, <%@ taglib %> 첫줄에 지시 / import도 지시자 안에 쓴다.
+	(directive)
+	
+	스크립팅	 :	<%! 멤버선언 %>, <% 자바코드 %>, <%= 출력 %>
+	엘리먼트
+	
+	표현식	 :	${표현식}
+	
+	커스텀 태그 :	JSTL
+	
+page 지시자
+	import = "java.util.*"
+	contentType = "text/html; charset=UTF-8"  	MIME타입과 문자 인코딩 설정
+	session = true (디폴트값은 true)				해당페이지에서 세션을 지원하려면 true
+	errorPage = "에러를 처리할 페이지"
+	isErrorPage = "true" (디폴트값은 false)			이 값이 true일 때 exception내장 객체 사용가능
+	pageEncoding								JSP페이지의 문자 인코딩을 정의(ISO-8859-1)
+	(그 밖에 isELIgnored, isThreadSafe, language, extends, butter, autoFlush, info)extends는 절대 쓰면안된다.
+	
+스크립틀릿
+	JSP페이지내에서 자바코드<% %>를 사용할 수 있도록한다. 
+	주의할 점은 스크립틀릿 내에 자바코드와 HTML코드는 분리되어서 처리되어야한다.
+	스크립틀릿 코드의 남용은 코드에 대한 가독성을 떨어뜨리고 유지보수를 어렵게 한다.
+	<%
+		if(age > 10){
+	%>
+			You need a ticket.
+	<%	}else{
+	%>
+			You are free.
+	<%
+		}
+	%>
+	
+표현식
+	Ten is <%= (2 * 5) %>
+	Thank you, <b> <%= name %> </b> for registration.
+	The Current day and time is <%= new java.util.Date() 0.0. %>
+	
+	
+	
+
+
+
+MVC(사진참고 숙지할것)- view / controller / model
+
+MVC패턴
+	-. UI개발자와 비즈니스개발자와의 분업 개발 제공
+	-. 동시 사용자 증가에 따른 시스템 확장성 제공
+	-. Low coupling, High cohesion을 통한 시스템 유지 보수의 편리성 제공
+		- 한쪽의 변화에 대해 다른한쪽이 그 변화를 적게 가져가는 것 - Low coupling
+		
+모델 2아키텍처
+	-. 썬 마이크로시스템의 베스트 가이드라인
+	-. MVC패턴 구현을 위한 베스트 컴포넌트
+		Model 		: (프라이머리)Java, Java Beans, EJB  (세컨더리)DAO, DTO
+		View		: 		   HTML, JSP, XML                 Servlet
+		Controller 	:          Servlet						  JSP     
+		
+컨트롤러의 주요 역할
+	서블릿에 의해 구현될 컨트롤러는 다음과 같은 역할을 처리한다.
+	-. 클라이언트의 요청 파라메타 정보를 구한다. (getParameter / getParameterValues / getParameterNames)
+	-. 요청 파라메타에 대한 유효성 검증 및 데이터 변환 작업을 처리한다. (스프링은 이 내용을 따로 한다. / 시간이 없을때는 스크립트에서)
+	-. 요청 처리에 필요한 비즈니스 오퍼레이션을 호출한다.
+	-. 요청 처리 결과에 따라 클라이언트에세 보여줄 뷰를 선택한다.
+	
+서블릿 커뮤니케이션
+	-. 서블릿은 다른 서블릿과 커뮤니케이션이 일반 객체와 달리 제약적이다.
+		- 사용자가 서블릿 객체를 직접 생성하지 않는다.
+		- 기본적으로 특정 서비스를 위해 하나의 서블릿 인스턴스를 생성한다.
+	-. 따라서 요청 처리를 다른 자원으로 위임할 수 있는 방법이 필요하다. (DB는 서버다운할 때 데이타베이스를 보관한다.)
+
+속성 *Scope과 RequestDispatcher
+	-. RequestDispatcher인터페이스는 서블릿에서 다른 페이지로 포워드할 수 있는 메소드를 제공
+	-. 속성 scope은 다른 서블릿과 공유해야 할 데이터를 임시적으로 저장할 수 있는 기능을 제공
+	-. request, session, application, page (맵에 데이터보관하는 건데 언제 사라지는지 차이가 있다)
+					  리퀘스트사이클 / 지금은 리퀘스트만 알아둘것
+					- request scope - 요청과 응답사이(request) 시간이 길다  
+					- session scope - 로그아웃해야 사라짐 (로그인 로그아웃기준 - 모든사용자를 대상으로하는 것  ex)장바구니)
+					- application scope - 로그아웃해도 안사라짐 여러사람 들어와도 남아있음 애플리케이션 셧다운 되야 사라짐
+					- page scope - 페이지 벗어나면 사라짐(잘 사용하진 않음)
+				
+			setAttribute(String name, Object obj)
+			getAttribute(String name)
+			
+			-- 서블릿 --
+			forward(페이지이동 방법)--
+			request.setAttribute("userName", userName);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
+			dispatcher.forward(request, response);
+			
+			sendRedirect(페이지이동 방법)--
+			request.setAttribute("userName", userName);
+			reponse.sendRedirect("success.jsp"); //주소변화, request scope종료
+			
+ 			통상적으로 로그인 후(1페이지)  foward로 다른 페이지(2페이지)로 이동하면 주소창은 (1페이지)를 가르킨다. _변화없음
+ 			sendRedirect로 하게되면 (2페이지)를 가르킨다. 
+
+			-- JSP --
+			String userName = (String)resquest.getAttribute("userName");
+			
+
+<%@ page import="" session="" errorPage="" isErrorPage="" contentType="" pageEncoding="" %>
+
+
+자바빈즈(Java Beans)
+	클래스. 클래스를 순수한 재사용 목적으로 만들때 빈이라고 한다. 빈규약을 따라 만드는 것.
+	Bean이란 재사용과 같은 목적을 가지고 지정죈 규칙에 따라 만들어진 클래스 혹은 컴포넌트
+	Bean규약 			
+           -. 빈은 인자가 없는 생성자를 가져야 한다.
+           -. 빈은 프로퍼티에 대한 네이밍 규칙을 준수해야 한다.
+           -. 설정(setter)메소드의 아규먼트와 접근(getter)메소드의 리턴타입은 동일해야한다.
+           		public void setName(String name);
+           		public void String getName();
+           		public void setFemale(boolean female);
+           		public boolean isFemaile();
+           -. 빈의 영속성을 위해 Serializable 또는 Externalizable 인터페이스를 구현할 수 있다. (직렬화-string화-Serializable)
+           -. 캡슐화를 유지한다.
+
+
+사용되는 이름과 역할과 그 차이 (비슷한 내용/ 랭귀지별로 다른 이름)
+-- 메소드와 함수의 차이
+메소드는 객체 안에 있어야한다. 객체의 일부
+함수는 객체 안에 안있어도 된다.
+- 랭귀지차원에서 랩핑해서 이름이 바뀐다.
+- 프로퍼티 - 세터 게터를 합친것
+
+
+JSP 표준액션
+	JSP는 다양한 표준액션 태그를 제공한다.
+	빈 관련 JSP표준액션 태그
+		-. 자바 빈즈를 JSP페이지에서 좀 더 쉽게 사용할 수 있도록 제공된 태그
+			- <jsp:useBean>, <jsp:setProperty>, <jsp:getProperty>,
+			  <jsp:include>, <jsp:forward>, <jsp:param>
+			  jsp를 적는 것은 html페이지와 관계가 있다.
+			  jsp에서는 forward를 잘 안쓰고 servlet에서는 include를 잘 안쓴다.
+	 	-. 사용 예) 
+	 		<jsp:useBean id="user"
+	 					class="com.varxyz.jv300.domain.User"
+	 					scope="request"/>
+	 					
+	 		id: 빈속성명, 구분자
+	 		class: 해당 빈에 대한 완전한 클래스명 (추상클래스 x)
+	 		scope: [page(defult) | request | sesstion | application]
+	 		type: 빈참조타입 (폴리모르피즘 적용 시 부모타입 명시)
+	 		
+	 		<jsp:useBean id="emp"
+	 					class="com.varxyz.jv300.domain.Manager"
+	 					scope="request"
+	 					type="com.varxyz.jv300.domain.Employee"/>
+	 					
+	 		<jsp:setProperty name="user" property="userId"/>
+	 					name="자바빈이름(<jsp:useBean>의 id속성과 동일명)
+	 					property="빈의 set프로퍼티명"
+	 		
+	 		case1)			
+	 			<jsp:useBean id="user"
+	 						class="com.varxyz.jv300.domain.User"
+	 						scope="request"/>
+	 			<jsp:setProperty name="user" property="userId"/>
+	 	
+	 		
+	 		case2)신규로 생성될 때만 몸체처리			
+	 			<jsp:useBean id="user"
+	 						class="com.varxyz.jv300.domain.User"
+	 						scope="request">
+	 				<jsp:setProperty name="user" property="userId"/>
+	 			</jsp:useBean>
+	 		
+	 		
+	 		<%
+	 			user.setUserId(request.getParameter("userId"));
+	 		%>
+	 		
+	 		<jsp:setProperty name="user" property="userId"
+	 			value="<%= request.getParameter("userId") %>"/>  
+	 			
+	 		<jsp:setProperty name="user" property="userId" param="userId"/>
+	 		이 때 주의할 것은 param과 value의 경우 빈타입이 String또는 Primitive타입 (param == parameter)
+	 		
+	 		<jsp:setProperty name="user" property="*"/>
+	 		회원가입하면 안에 들어가는 폼과 뒤에 유저는 같다고 보면 받아올때 request.getparameter~로 가져오는데
+	 		매번 set~하지 않고 jsp컨트롤러로 자동으로 채운다. 하지만 잘 쓰지 않는다.  -commend
+	 		
+	 		
+	 		<jsp:getProperty>태그
+	 			빈이 가지고 있는 프로퍼티 값을 JSP페이지에 출력할 때 사용
+	 			<jsp:getProperty name="user" property="userId"/>
+	 			특정한 속성값을 화면에 찍을 때 지금까진 <%= %> , out.prinln 사용했다.
+	 			그리고 완전한 태그인 <jsp:getProperty>태그를 사용하는 방법도 있다.
+	 		
+																				* 취직하면 스크립트를 주로 - 3년차 - 컨트롤러 - n년차 - DB
+								 													V M C 안보고 칠정도로 외울 것..
+	 		<jsp:include>태그
+ 				현재 JSP페이지내에 지정된 페이지를 포함시킨다.
+ 				<jsp:include page="/incl/banner.jsp"/> (-> 3+5가 있을 때 3+5 = 8 까지 보여줌  )
+ 				cf) <%@ include file="..." %> (-> 3+5가 있을 때 3+5 그대로 카피 )
+ 				
+ 				<jsp:include>					<%@ include>
+ 				실행시점에 페이지에 포함				변환시점에 페이지에 포함
+ 				수정 시 업데이트 제공         		수정 시 자동 업데이트가 안됨                                                                    
+ 				정적컨텐츠, JSP, CGI포함가능      	정적컨텐츠, JSP만 가능                                                                                                                          
+ 				표현식을 통해 page속성지정 가능			표현식을 통해 page속성지정 불가능
+ 				매개변수 추가 가능(동적으로 받겠다)
+ 				
+ 				
+ 			<jsp:param>태그
+ 				--mypage1.jsp--
+ 				<jsp:include page="header.jsp">
+ 					<jsp:param name="subtitle" value="welcome to varxyz"/>
+ 				</jsp:include>
+ 					
+ 				--header.jsp--
+ 					<img src"">${param.subtitle}
+ 					
+ 					
+
+
+include 참고하고 아래를 하면 더 쉽게 할 수 있다. (include와 동일한 기능) 					
+ 					
+EL은 화면출력과 관련이 있다.	
+EL (Expression Language) --***
+	-. Since JSP2.0스펙에서 EL추가
+	-. EL은 크게 두가지 형태로 사용
+		- 커스텀태그나 액션태그의 속성값으로 사용**
+		- JSP페이지내에서 텍스트 출력 시 사용**
+	-. Syntax : ${addr.city}, ${user.userId}
+	
+	JSP액션태그에서 예)
+		<jsp:include page="/user/${user.id}/details.jsp"/>를  EL로 바꾸면 ==> /user/java/details.jsp
+	HTML출력 시 예)
+		<h3> Welcome! ${user.userName}님 </h3> ==> <h3> Welcome 유비님 </h3>
+	커스텀태그 속성값으로 예)
+		<c:set var="name" value="${user.userName} />
+		
+	${left.right}
+		left : EL내장객체, 자바 빈, Map 중의 하나 (주로 많이 쓴는 것 : 자바빈)**
+		right : 빈의 경우 프로퍼티, Map의 경우 key (주로 많이 쓴는 것 : 프로퍼티(프로퍼티는 변수처럼보이나 세터게터 합친것)**
+		
+		- ${user.userId} == ${user["userId"]}
+		- ${requestScope.user.userId} //requestScope은 EL내장객체
+		
+		//맵
+		${nationMap.kr} = ${nationMap["kr"]}
+		${header.host} = ${header["host"]}
+		맵의 형태로 정보가 보관되는 것 - header(key,value의 쌍)
+		
+		//배열
+		${nations[0]} = ${nations["0"]}
+		//List처리
+		=> Servlet
+		List<String> hobbies = new ArrayList<String>();
+		hobbies.add("travel");
+		hobbies.add("drive");
+		
+		Map<String, String> teachers = new HashMap<String, String>();
+		teachers.put("java","유비");
+		
+		request.setAttribute("hobbies", hobbies);
+		request.setAttribute("teachers", teachers);
+		
+		=> JSP
+		Your first hobby is ${hobbies[0]}
+		Your Java teacher is ${teachers["java"]}
+		
+-------- 위의 내용으로 프로젝트를 해야한다.		
+
+EL내장객체
+	-. pageScope / requestScope / sessionScope / applicationScope
+	-. param  ex) ${param.userName}
+	-. paramValuse  ex) ${paramValuse.fruit[0]}
+	-. header / headerValues / 
+	-. cookie(쿠키도 일종의 맵)  ex) ${cookie.userName.value}
+								=> if(cookie[i].getName().equals("userName")){
+										out.println(cookie[i].getValue());
+									}
+	-. initParam
+	-. pageContext  ex) ${pageContext.request.method} = ${requestScope.method}
+
+
+EL연산
+	-. ${1 + 2 * 4} => 9
+	-. ${"1" + 10} => 11
+	-. ${null +  1} => 1
+	-. ${3 div 4} => 0.75
+	-. ==, eq
+	-. !=, ne
+	-. ${empty someVar}
+		someVar이 빈 객체인지 여부를 검사
+		true : null, "", 길이0, / 아니면 false임
+	-. 주로 논리연산을 많이 쓴다.
+	-. null값에 대한 EL처리 방법
+		- 속성/프로퍼티가 존재하지 않을 경우 에러 대신 그 부분에 어떤 내용도 출력하지 않는다.
+		- 산술연산에서 null값은 0으로 처리한다.
+		- 논리연산에서 null값은 false로 처리한다.
+		
+	-. EL2.2부터 객체의 메소드를 호출할 수 있다.(잘쓰지는 않음 특별한 경우에 사용)
+		${x.dosomthing()} => JSP 2.1이전 버전에서는 컴파일에러
+		
+		<%
+			Calculator calc = new Calculator();
+			request.setAttribut("calc", calc);
+		%>	
+		
+		${calc.setAdd(1,3)}
+		${calc.getAdd()}
+
+
+*point**모든 연산은 Servlet에서 다 끝낼것 JSP는 출력이 목적**
+
+
+JSTL과 커스텀 태그
+	JSTL은 표준 태그 라이브러리(Standard Tag Libary)로서 커스텀 태그 중에서
+	많이 사용하는 것들을 모아 JSTL규약을 만들었다.
+	
+	JSTL을 사용함으로써 스크립트 코드를 사용할 때보다 간결하고 이해하기 쉬운
+	JSP코드를 작성할 수 있다.
+	
+	커스텀 태그는 사용자가 직접 개발한 사용자 정의 태그로서 특정 업무나 기능을 가진 태그를 
+	개발자가 직접 커스터마이징을 할 수 있다.
+
+JSTL특징
+	JSP에서 자바코드를 제거할 수 있다.
+	커스텀 태그는 재사용이 가능하다.
+	코드에 대한 가독성과 유지보수가 쉽다.
+	XML기반의 태그 형식
+	다양한 커스텀태그 라이브러리 제공
+	
+JSTL태그의 종류
+	코어라이브러리 : 변수지원, 흐름제어, URL처리 (접두어 : c)
+	XML라이브러리 : XML제어, 변환 (접두어 : x)
+	국제화 라이브러리 : 지역, 메세지, 숫자, 날짜 형식을 국제에 맞게 처리 (접두어 : fmt)
+	데이터베이스 라이브러리 : SQL관련 (접두어 : sql)
+	함수 아이브러리 : 컬렉션, String처리 (접두어 : fn)
+	
+JSTL 코어 라이브러리
+	set / if / forEach / uel / out
+
+set태그))
+	EL변수의 값이나 EL변수의 프로퍼티 값을 지정 할 때 사용
+	
+	<c:set var="pageTitle">회원가입</c:set>
+	
+	<html>
+		<head><title>${pageTitle}</title></head> --> 회원가입이 나옴
+		...
+	</html>
+	
+**if태그))
+	자바의 if블록과 유사한 기능을 제공한다.
+	<c:if test="조건식">조건이 참일 경우 실행코드</c:if>
+	<c:if test="${not empty errorMsgs}">에러처리를 여기서</c:if>
+	
+**forEach태그))
+	배열, 컬렉션, 맵의 데이터를 순차적으로 처리할 때 사용한다.
+	<c:forEach var="message" items="${errorMsgs}">
+		<li>${message}</li>
+	</c:forEach>
+	
+	<c:forEach var="num" begin="1" end="10">
+		${num} -> 1부터 10까지 값 출력
+	</c:forEach>
+	
+**url태그))
+	컨텍스트 경로를 포함한 URL을 생성해 준다.
+	value속성은 절대경로/상대경로 모두 가능
+	<form action='<c:url value="add_user.do"/>' method="post">
+	<form action='/add_user.do' method="post">
+
+
+	html에서 /는 루트   context?에서 /는 wep context  컨텍스트를 다 모아 웹어플리케이션이라 한다.
+
+	
+out태그))
+	데이터를 출력할 때 사용되는 태그로써 특수문자를 변경할 수 있는 기능을 제공한다.
+	<c:out value="${param.email}" default="no email provided" escapeXml="true" />  (태그를 해석하지 않고 html자체로(기호와텍스트자체로) 출력한다.)
+	<c:out value="${param.email}"/>(이것만 있어도된다.)
+	<c:out...>출력내용</c:out>
+	
+	
+	
+<c:url> - 상대경로 절대경로
+	
+
+---
+		비동기적 접근방법 Ajax
+
+		스크립트는 컴퓨터에 대해서 처리하는 것 이기때문에 에러가 나면 힘들어진다ㅏㅏ.
+
+		회원가입 시 에러가 났을 때 오류창 띄우고 내가 쓴 정보 다 없어진 초기화 화면보다
+		오류창을 띄우며 내가 쓴 정보가 그대로 남아 있는 것이 더 좋다.
+		
+		IT에서는 context라는 말을 많이 쓴다.
+		web context == servlet context
+		ex) jv301안에 있는 것들  --> web context -(서블릿관점)--> servlet context -(물리적으로 묶으면)--> web application
+			web application의 존재는 톰캣의 on/off  모든 작업의 흐름 --> scope context
+			
+		ServletContextEvent -> event를 가지는 servlet / event 와 listener
+		ServletContextListener -> ServletContextEvent를 지켜본다. -- interface
+		
+		
+		ServletContextListener에서 파일을 읽는 것을 많이 한다.
+		애플리케이션 초기화정보가 많이 필요 - 파일을 이용
+		servletConfig는 딱 그것만 초기화
+		
+		
+[[[[우리가 ServletContextListener에서 해야할 일은 데이터베이스 초기화 작업을 해야한다.]]]]
+https://velog.io/@falling_star3/Tomcat-%EC%84%9C%EB%B8%94%EB%A6%BFServlet%EC%9D%B4%EB%9E%80
+
+서비스 전에 시간이 많이 걸리는 작업을 해두는 것이 좋다 (DB세팅)
+커넥션툴 만들어서 리스트 담고 사용자 요청 들어오면 하나 빼서 보내고 빠진곳 비우고 사용중이다라는 리스트에 넣기
+자카르타?
+데이타베이스 관련된 작업을 하려면  
+
+---기본---
+public InitalizeDataSource implements { - }
+1) 파일읽기 (jdbc.prrperties)
+2) DataSource() { ☆ }
+3) ServletContext.setAttribute(" ", ☆ )
+
+
+
+수강관리시스템 예시)
+
+
+
+도메인 지식 중요
+
+데이타모델링
+도메인모델링
+
+
+분리의 중요성
+
+
+
+dao는 데이타베이스 관련 작업만
+
+
+
+ctrl + shif + o  --> import 단축키
+
+
+
+>> 우리가 하는 것은 다 usecase이다.
+
+
+
+
+세션관리(Session Management)
+	-. HTTP프로토콜은 stateless 프로토콜
+	-. 특정 사용자에 대한 상태 정보를 저장해야 할 경우 문제
+	-. 세션이란 여러 HTTP요청들 간에 특정 클라이언트 정보를 저장 유지하는 메커니즘
+		(특정요청들 간에 사용자를 인식하는 것 / 각 요정간의 내용들이 어떤 사용자의 것이냐 / 특정 사용자의 유효범위에 대한 고민 (세션 : 로그인/로그아웃 사이))
+		(애플리케이션 컨텍스는 논리적으로 셧다운 안될 수 있다. 리퀘스트스콥 / 세션스콥) 
+	-. 웹 컨테이너 벤더는 세션 유지와 관련된 지원을 반드시 제공
+		(form hiden / cookie(브라우저메모리에서 일시적으로 왔다갔다. / 아이디기억하기 - 쿠키))
+
+세션(Session)(== 쿠키 / 세션을 지원하는 것은 쿠키다)
+	-. 세션 정보(객체)는 요청 객체로 부터 획득 가능
+		ex) HttpSession = request.getSession();
+	-. 세션 객체는 여러개의 특정 정보를 저장, 검색 할 수 있는 메소드를 제공한다.
+		ex) session.setAttribute("myCart", cart);
+		
+Session 생성
+	HttpSession getSession();
+	HttpSession getSession(boolean flag);
+	
+Session제거
+	void invalidate();	//서블릿
+	
+	<session-config>	//web.xml
+		<session-timeout>30</session-timeout> (30분까지는 보장하겠다.)
+	</session-config>
+	
+	(세션은 서버에 메모리 부담을 줄 수 있으므로 session-timeout을 통상적으로 사용한다. 30~40분)
+	
+	
+쿠키(Cookie)
+	-. 쿠키는 세션을 지원하기 위해 고안된 것으로 일종의 문자 데이터 (쿠키 -> 문자정보)
+	-. 요청에 대한 응답 과정에서 클라이언트 장치(ex)브라우저)에 저장할 수 있는 정보
+	-. 클라이언트의 브라우저 종료 시 쿠키정보는 기본적으로 삭제된다.
+	-. 서버와 클라이언트는 요텅-응답 과정에서 쿠키(이름/값)를 교환
+	-. 쿠키이름은 아스키코드의 알파벳과 숫자만을 포함
+	-. 콤마, 세미콜론, 공백은 포함할 수 없다.
+	-. $로 시작할 수 없다.
+	-. setMaxAge(60 * 30)
+	-. URLEncoder.encode("서울", "UTF-8");
+
+
+
+
+
+
+프로젝트)
+	usecase는 text _ 시스템에서의 의미적 결과(요청사항에 따른 결과)
+	actor가 시스템과 상호작용
+	usecase 다이어그램은 최소한의 소통이고 본 모델은 글
+	실패시나리오를 적어볼 것 (버그최소화를 위한)
+	분석할 것	
+	사용자입장에서 목적에 의한 결과 가 곧 usecase이름
+	usecase안에 activity
+		ex) usecase : 예약하기
+			activity : 예약하는 과정 1. 2. 3... 
+	실패시나리오도 usecase안에	
+
+
+	1.프로젝트명 시스템명                                                                           
+	2.그룹ID ex) com.naver
+	3.프로젝트ID ex)-키워드  com.naver/키워드
+	4.[Excentitalecases
+	5.[High value]usecases  => 반드시 할 내용
+	6.[Follow]usecases  => 시간/여유가 되면 추가 될 내용을 정의까지만
+	7.Usecase별 담당자
+	8.이슈 
+	
+	
+	
+	
+	
+	
+22.07.20	
+-------------------------------------------------------------------------------------	
+스프링(Spring) 프레임워크
+	프레임워크(틀)-자체는 의미가 없다  라이브러리(기능이 있다)  프레임워크는 라이브러리덩어리
+	서블릿은 프레임워크이다.
+	
+	
+	json데이타 와 xml데이타
+	프로토콜 -> 규약을 갖고 만들어진 데이타집합
+	HttpServlet을 상속받아 사용 하듯 스프링프레임워크를 상속받아 사용 (부트스트랩처럼)
+	
+	
+스프링(Spring) 프레임워크
+	-. Expert One on J2EE Development without EJB, Rod Johnson  - book
+	-. EJB를 사용하지 않고 엔터프라이즈 애플리케이션 개발 방법 소개
+	-. 스프링은 엔터프라이즈 애플리케이션에서 필요로 하는 기능을 제공하는 프레임워크
+	-. DI, AOP, 트랜잭션, 시큐리티 등의 기능을 제공
+
+스프링 프레임워크의 특징
+	-. 상대적으로(EJB보다) 가벼운 J2EE 컨테이너로 기존 JavaEE 기능 다수를 제공
+	-. POJO 기반으로 작성, 테스트 및 배포가 쉬움 (POJO - 일반클래스)
+	-. 다른 프레임워크와의 연동 지원
+	-. 설정 파일 변경만으로도 소스 수정없이 클래스 사이의 새로운 의존 관계 설정
+
+[bash]	
+cd %ECLIPSE_WORKSPACE_HOME%
+Spring-MVC-
+
+$ git clone  http://github.com/junkiebyte/Spring-MVC-Project.git   jvx330 
+https://projectlombok.org/download  다운해서 이클립스 있는곳에 넣기
+
+asm <---core  	<---beans
+				<---expession <---context <---transaction
+				
+
+forName 하면 클래스를 리턴한다.
+
+java는 모든 bean을 관리한다.
+spring과 관련된 bean은 싱글톤으로 관리한다. - 하나만들어두고 계속 쓴다. 
+-자바리플렉션 기능
+spring은 자기가 필요한 클래스를 사용하기위해 bean을 사용한다.
+-디펜던시인섹션 기능
+	패턴의 한 종류이다. IOC
+	(service ----> Dao   서비스가 dao를 의존한다.)
+	(servlet ----> service	 서블릿이 서비스를 의존한다.)
+	(JSP ----> servlet JSP가 	서블릿을 의존한다.)
+	이 관계들을 외부파일로 옮긴다.
+	
+
+	
+객체를 누가 만드냐 _생성에관한문제
+만들어진 객체의 의존관계를 어떻게 설정할 것인가
+
+개체를 어떻게 생성하고 의존관계를 어떻게 설정할 것인가
+
+
+---정리
+DI(Dependency Injection)
+	-. 빈 객체들간의 의존관계 설정에 대한 방식
+	-. 객체들간의 상호 참조형태를 객체자신들이 아닌 외부어셈블러에 의해 수행
+	-. 관련참조 및 매핑정보를 외부파일로 제공
+		- 객체들간의 의존관계를 약하게 하고 (loose coupling)
+		- 코드들에 대한 단위 테스트가 쉽다.
+
+스프링 DI 컨테이너
+	-. 스프링프레임워크는 스프링컨테이너를 통해 DI를 제공	
+	-. 스프링 컨테이너는 빈 객체들의 생성, 저장, 소멸 등과 같은 라이프사이클 관리를 수행
+	-. 빈설정 매핑정보를 바탕으로 빈들간의 의존관계를 설정
+
+스프링 컨테이너 인터페이스
+	-. BeanFactory
+	-. ApplicationContext
+	-. WepApplicationContext
+	
+BeanFactory인터페이스
+	-. 빈객체를 관리하고 빈들간의 의존관계를 설정해주는 기능을 제공
+	-. 구현체로는 XmlBeanFactory 클래스 등이 있다.
+		Resource resource = new ClasspathResource = new
+		ClasspathResource("com/varxyz/jvx330/di/example1/beans.xml");
+		BeanFactory factory = new XmlBeanFactory(resource);
+		Foo foo = (foo)factory.getBean("foo");
+		
+ApplicationContext인터페이스
+	-. BeanFactory 인터페이스의 자식 인터페이스로서 일반적인 애플리케이션 개발시 주로 사용
+	-. BeanFactory의 빈 관리기능과 더불어 자원처리 추상화, 메세지, 이벤트, 국제화 등을 지원
+	
+WepApplicationContext인터페이스
+	-. 웹 애플리케이션 개발시 사용되며 웹 애플리케이션 당 하나씩 존재하는 컨테이너
+	-. ApplicationContext인터페이스를 상속하여 빈 scope에 대한 추가 기능정의
+	-. 구현체로서 XmlWepApplicationContext클래스 등이 있다.
+
+빈생성과 의존관계
+	-. 스프링컨테이너는 기본적으로 XML파일을 통해 빈객체와 연관관계를 설정
+	-. 스프링설정파일은 DTD방식설정과 스키마방식설정 모두 지원 (주로 스키마사용)
+	-. 스프링은 관리할 빈을 등록하기 위해서 <bean>태그를 사용
+	-. 스프링은 주어진 클래스의 생성자를 이용하여 빈을 생성
+	-. <constructor-arg>태그 정의가 없다면 아규먼트가 없는 생성자를 이용한다.
+	-. 스프링은 기본적으로 하나의 클래스 당 하나의 빈을 생성하여 재사용한다.
+	-. 빈태그의 속성
+		- name : 용도가 id와 동일 , 슬래쉬(/)와 같은 특수문자를 포함할 수 있다.
+		- id : 생성괸 빈 객체를 위한 식별값
+		- class : 생성할 빈의 클래스로서 패키지를 포함한 완전한 클래스명을 지정
+		- scope : 빈의 scope속성으로서 singleton(디폴트), prototype, request, session, global-session
+		- abstact : 이 값이 true면 해당 빈인스턴스를 생성하지 않는다.
+		- factory-method : 싱글톤 클래스의 경우 해당객체를 얻기위한 메소드 지정
+		- init-method : 빈이 생성된 후 빈객체에 대한 초기화 작업을 처리할 메소드를 지정
+		- destory-method : 빈 소멸직전에 자원해제와 같은 소멸작업을 처리할 메소드 지정
+
+와이어링 	-byName
+		-byType 타입을 많이 쓴다. NamingService
+			type이 2개 이상이면 type이름을 지정하여 사용
+		
+
+
+실습(ex7)----------------------
+메뉴(MenuItem)
+	-. 메뉴이름(name)
+	-. 메뉴가격(price)
+	
+MenuItemsService의 기능
+	-. 신규 MenuItem 등록
+	-. 등록된 모든 메뉴 조회
+	-. 메뉴이름으로 메뉴 검색
+	
+하나 이상의 신규 메뉴를 등록하고
+등록된 목록을 출력하고
+메뉴명으로 메뉴를 검색할 수 있도록 구현
+------------------------------
+
+
+의존관계 자동설정
+	-. 스프링은 클래스의 코드를 통해 의존관계를 자동으로 설정할 수 있다.
+	-. 속성명 : autowire
+		- byName : 프로퍼티이름과 동일한 빈 객체를 설정(get/set)
+				   프로퍼티이름 변경 시 참조하는 빈의 이름도 함께 변경해야한다.
+	
+		- *byType : 프로퍼티타입과 동일한 빈 객체를 설정
+					하나의 타입에 하나의 빈만을 정의할때 사용
+				    동일타입의 빈 두개이상이 존재하면 예외가 발생 (=> Qualifier어노테이션)
+	
+		- constructor : 기본적으로 byType과 동일
+				   		생성자 아규먼트와 동일한 빈타입의 객체를 설정
+		
+		- autodetect : 기본적으로 byType과 동일
+					   constructor방식을 적용한 후에 byType방식을 적용한다.
+					   
+	-. @Autowired어노테이션
+		- @Autowired어노테이션은 빈타입을 이용하여 의존하는 객체를 삽입
+		- @Autowired어노테이션은 필드, 생성자, 메소드에 적용가능하다.
+		- @Autowired어노테이션을 사용하기 위해서는 빈 설정파일에 <context:annotation-config/>를 정의
+		- @Autowired(required=false)속성값이 --?도 예외가 발생하지 않는다.
+
+스프링 빈스캔
+	-. 클래스들 가운데 특정 어노테이션이 정의된 클래스를 자동으로 빈으로 등록가능
+		- @Compoment - 가장 기본적인 스캔 대상 컴포넌트임을 나타낸다.
+		- @Controller - 프리젠테이션 레이어 컴포넌트임을 나타낸다. (앞에서의 Servlet역할(Servlet에 붙임))
+		- @Service - 서비스 레이어 컴포넌트임을 나타낸다.	(앞에서의 Service역할(Service에 붙임))
+		- @Repository - 퍼시스턴스 레이어 컴포넌트임을 나타낸다. (앞에서의 Dao역할(Dao에 붙임))
+	-. 등록시 지정될 빈의 이름은 해탕 클래스명의 첫글자를 소문자로 바꾼 이름을 기본으로 사용한다.
+		ex) 
+			@Controller("memberController") -> 안달아주면 클래스이름으로 헤준다. 클래스이름을 잘 해주면 안달아줘도 되는 것  /컨트롤러에서는 무겁게 하지말것
+			@Scope("singleton") -> 기본은 싱글톤 - 안쓰면 싱글톤이며 대게의 경우 안쓴다. (모두를 위할떄는 싱글톤/ 특별한 경우엔 제외)
+			public class MemberController {}
+			
+
+
+--------------------
+템플릿메서드패턴(반복적인것)
+
+view에서 보여질 데이터가 model
