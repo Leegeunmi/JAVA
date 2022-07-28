@@ -40,12 +40,12 @@ public class AddAccountController {
 	public String addAccount(HttpServletRequest request ,
 			AccountCommand accountCommand, Model model) {
 		HttpSession session = request.getSession();
-		String userId = (String)session.getAttribute("userId");
+		String email = (String)session.getAttribute("email");
 		double balance = Double.valueOf(request.getParameter("balance"));
 		model.addAttribute("accountCommand", accountCommand);
 		
 		accountCommand.setAccountNum("123-45-6789");	// 임의 계좌번호 set
-		accountCommand.setUserId(userId);
+		accountCommand.setEmail(email);
 		//	계좌생성
 		accountCommand.setBalance(balance);
 		accountService.addAccount(accountCommand);
@@ -58,9 +58,9 @@ public class AddAccountController {
 	@PostMapping("/banking/find_account")
 	public String findAccount(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
-		String userId = (String)session.getAttribute("userId");
-		System.out.println("find_account = " + accountService.findAccountByCustomerId(userId));
-		List<AccountCommand> accountList = accountService.findAccountByCustomerId(userId);
+		String email = (String)session.getAttribute("email");
+		System.out.println("find_account = " + accountService.findAccountByCustomerId(email));
+		List<AccountCommand> accountList = accountService.findAccountByCustomerId(email);
 		request.setAttribute("accountList", accountList);
 		return "banking/success_find_account";
 	}

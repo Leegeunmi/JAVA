@@ -10,7 +10,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class CustomerCommand {
-	private String userId;
+	private String email;
 	private String passwd;
 	private String name;
 	private String ssn;

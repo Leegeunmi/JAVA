@@ -31,15 +31,15 @@ public class LoginController {
 	
 	@PostMapping("/banking/login")
 	public String login(HttpServletRequest request, Model model) {
-		String userId = request.getParameter("userId");
+		String email = request.getParameter("email");
 		String passwd = request.getParameter("passwd");
 		
-		if(!customerService.loginCustomer(userId, passwd)) {
+		if(!customerService.loginCustomer(email, passwd)) {
 			return "banking/login";
 		}
 		
 		HttpSession session = request.getSession(true);
-		session.setAttribute("userId", userId);
+		session.setAttribute("email", email);
 		
 		return "banking/index";
 	}

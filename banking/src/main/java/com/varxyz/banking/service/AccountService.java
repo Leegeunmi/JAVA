@@ -29,7 +29,7 @@ public class AccountService {
 				new AnnotationConfigApplicationContext(DataSourceConfig.class);
 		AccountDao adao = context.getBean("accountDao", AccountDao.class);
 		CustomerDao cdao = context.getBean("customerDao", CustomerDao.class);
-		Customer findCustomer = cdao.findCustomerByEmail(accountCommand.getUserId());
+		Customer findCustomer = cdao.findCustomerByEmail(accountCommand.getEmail());
 		System.out.println(findCustomer);
 		System.out.println(findCustomer.getCid());
 		
@@ -47,13 +47,13 @@ public class AccountService {
 		context.close();
 	}
 	
-	public List<AccountCommand> findAccountByCustomerId(String userId) {
+	public List<AccountCommand> findAccountByCustomerId(String email) {
 		AnnotationConfigApplicationContext context =
 				new AnnotationConfigApplicationContext(DataSourceConfig.class);
 		CustomerDao cdao = context.getBean("customerDao", CustomerDao.class);
 		AccountDao adao = context.getBean("accountDao", AccountDao.class);
 		
-		Customer findCustomer =  cdao.findCustomerByEmail(userId);
+		Customer findCustomer =  cdao.findCustomerByEmail(email);
 		return adao.findAccountByCustomerId(findCustomer.getCid());
 	}
 }

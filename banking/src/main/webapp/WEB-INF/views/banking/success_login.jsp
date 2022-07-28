@@ -11,7 +11,7 @@
 <body>
 	<h3>로그인 성공</h3>
 	<form action="login" method="post">
-		<label>아이디 : </label>${userId }
+		<label>회원ID : </label>${email }
 		<a href="/banking/banking/add_account">계좌생성하러가기</a>
 	</form>
 </body>

@@ -10,7 +10,7 @@
 </head>
 <body>
 <h3>회원찾기 page</h3>
-<label>아이디 : </label>${customer.userId}<br>
+<label>회원ID : </label>${customer.email}<br>
 <label>비밀번호 : </label>${customer.passwd}<br>
 <a href="/banking/banking/login">로그인</a>
 </body>

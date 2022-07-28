@@ -13,7 +13,7 @@ import lombok.ToString;
 @ToString
 public class Customer {
 	private long cid;
-	private String userId;
+	private String email;
 	private String passwd;
 	private String name;
 	private String ssn;

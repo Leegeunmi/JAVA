@@ -10,8 +10,8 @@ import com.varxyz.banking.command.CustomerCommand;
 import com.varxyz.banking.domain.Customer;
 import com.varxyz.banking.service.CustomerService;
 
-@Controller("addCustomerController")
-public class AddCustomerController {
+@Controller("CustomerController")
+public class CustomerController {
 	
 	@Autowired
 	private CustomerService customerService;

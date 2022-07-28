@@ -19,48 +19,48 @@ public class CustomerDao {
 	}
 	
 	public void addCustomer(CustomerCommand customerCommand) {
-		String sql = "INSERT INTO Customer (userId, passwd, name, ssn, phone)"
+		String sql = "INSERT INTO Customer (email, passwd, name, ssn, phone)"
 				+ " VALUES (?, ?, ?, ?, ?)";
-		jdbcTemplate.update(sql, customerCommand.getUserId(),  customerCommand.getPasswd(),
+		jdbcTemplate.update(sql, customerCommand.getEmail(),  customerCommand.getPasswd(),
 				customerCommand.getName(), customerCommand.getSsn(), customerCommand.getPhone());
 	}
 	
 	public List<Customer> findAllCustomer() {
-		String sql = "SELECT cid, userId, passwd, name, ssn, phone, regDate FROM Customer";
+		String sql = "SELECT cid, email, passwd, name, ssn, phone, regDate FROM Customer";
 		
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<Customer>(Customer.class));
 	}
 	
 	public List<Customer> findCustomerByRegDate(Date regDate) {
-		String sql = "SELECT cid, userId, passwd, name, ssn, phone, regDate"
+		String sql = "SELECT cid, email, passwd, name, ssn, phone, regDate"
 				+ " FROM Customer WHERE DATE(regDate)=?";
 		
 		return jdbcTemplate.query(sql, new BeanPropertyRowMapper<Customer>(Customer.class), regDate);	
 	}
 	
 	public Customer findCustomerByEmail(String email) {
-		String sql = "SELECT cid, userId, passwd, name, ssn, phone, regDate"
+		String sql = "SELECT cid, email, passwd, name, ssn, phone, regDate"
 				+ " FROM Customer WHERE email=?";
 		
 		return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<Customer>(Customer.class), email);
 	}
 	
 	public Customer findCustomerBySsn(String ssn) {
-		String sql = "SELECT cid, userId, passwd, name, ssn, phone, regDate"
+		String sql = "SELECT cid, email, passwd, name, ssn, phone, regDate"
 				+ " FROM Customer WHERE ssn=?";
 		
 		return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<Customer>(Customer.class), ssn);
 	}
 	
-	public boolean loginCustomer(String userId, String passwd) {
+	public boolean loginCustomer(String email, String passwd) {
 		boolean bool = false;
-		String sql = "SELECT userId, passwd FROM Customer WHERE userId=?";
+		String sql = "SELECT email, passwd FROM Customer WHERE email=?";
 		Customer customer = jdbcTemplate.queryForObject(sql, 
-				new BeanPropertyRowMapper<Customer>(Customer.class), userId);
-		System.out.println("테이블의 아이디 " + customer.getUserId());
-		System.out.println("CustomerDao String 값 " + userId);
+				new BeanPropertyRowMapper<Customer>(Customer.class), email);
+		System.out.println("테이블의 이메일 " + customer.getEmail());
+		System.out.println("CustomerDao String 값 " + email);
 		System.out.println("CustomerDao " + customer.getPasswd());
-		if(userId.equals(customer.getUserId()) && passwd.equals(customer.getPasswd())) {
+		if(email.equals(customer.getEmail()) && passwd.equals(customer.getPasswd())) {
 			bool = true;
 			return bool;
 		}
@@ -75,3 +75,4 @@ public class CustomerDao {
 	
 	
 }
+//서비스에서 다오를 부르고 컨트롤러에서 서비스를 부르고  -  컨트롤러에서 매핑

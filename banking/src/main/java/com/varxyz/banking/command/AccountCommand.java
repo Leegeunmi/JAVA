@@ -14,7 +14,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class AccountCommand {
-	private String userId;
+	private String email;
 	private String accountNum;
 	private char accountType;
 	private double balance;

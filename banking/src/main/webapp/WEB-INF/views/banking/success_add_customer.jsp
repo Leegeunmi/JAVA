@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h3>회원가입 성공</h3>
-	<label>아이디 : </label>${customerCommand.userId}<br>
+	<label>E-mail : </label>${customerCommand.email}<br>
 	<label>비밀번호 : </label>${customerCommand.passwd}<br>
 	<label>이름 : </label>${customerCommand.name}<br>
 	<label>주민번호 : </label>${customerCommand.ssn}<br>
