@@ -1,0 +1,105 @@
+com.varxyz.jvx331
+(패키지)	=account -계좌
+		=domain
+			+Account
+			+AddAccount
+		=repository -dao
+		=service -service
+		=web -controller
+			+AddAccountController
+	=auth -로그인/로그아웃
+		=domain
+			+AuthUser(AuthUser는 비밀번호를 제외하고 자주사용되는 정보를 정의)
+			+AuthUserService?
+		=web
+			+UserContainer
+	=config -config
+	=customer -고객관련
+		=domain
+			+ customer
+		=repository -dao
+			=impl
+				+CustomerSpringImpl 
+					           CustomerSpringImpl  mplements   ?
+			=Rowmapper
+				+Rowmapper
+			+ ?
+		=service -service
+			+CustomerService
+			+CustomerServiceImpl
+		=web -controller
+			=AddCustomerController
+			=LoginOutController
+				@Autowired
+				private AuthUserService authUserService;
+				(AuthUser는 비밀번호를 제외하고 자주사용되는 정보를 정의)
+			=Controller
+	=exception -exception
+	=그밖에 공통모듈..등
+	
+
+-------------------------------------------------------------------------------------------
+
+
+
+jsp
+
+	최상단에 form
+
+	<form:form method="post" modelAttribute="customer">
+
+	<form:input path  >
+
+	
+-------------------------------------------------------------------------------------------
+
+
+select option부분을 controller에서 생성해보기
+	@ModelAttribute("이름")
+	리스트 코드작성
+	<option>선택하기</option>
+	<form:options items="${  이름  }"/>
+
+
+-------------------------------------------------------------------------------------------
+
+Customer와 CustomerCommand 분리하기 -> domain과 command
+
+
+buildCustomer
+
+-------------------------------------------------------------------------------------------
+
+
+jsp
+
+<c:choose>
+	<c:when test>
+
+
+-------------------------------------------------------------------------------------------
+
+
+session의 활용 (login logout 뒤로가기 ..등)
+
+-------------------------------------------------------------------------------------------
+
+
+계좌생성시 비밀번호 확인하기
+이체 시 비밀번호 확인하기
+
+
+
+계좌 목록
+	계좌번호 / 계좌타입 / 잔고 /  이체하기
+계좌번호 / 계좌타입 / 잔고 /  이체하기
+계좌번호 / 계좌타입 / 잔고 /  이체하기
+
+
+
+@Transactional  -> 처리하는 동안에 오류가 나지 않게 하려고 하는 것
+		-> 분리할 수 없는 단
+
+
+송금할때 빼고 넣는 것인데  (2단계) 
+	둘중 하나가 실패해도 모두 실패 _리셋

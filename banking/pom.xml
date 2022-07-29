@@ -98,10 +98,10 @@
 		
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 		<dependency>
-    		<groupId>org.projectlombok</groupId>
-    		<artifactId>lombok</artifactId>
-    		<version>1.18.24</version>
-    		<scope>provided</scope>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <version>1.18.24</version>
+		    <scope>provided</scope>
 		</dependency>
 		
 		<!-- https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api -->
@@ -227,12 +227,11 @@
                     <mainClass>org.test.int1.Main</mainClass>
                 </configuration>
             </plugin>
-            
-            <plugin>
+                        <plugin>
   <artifactId>maven-war-plugin</artifactId>
   <version>3.2.2</version>
 </plugin>
-            
         </plugins>
+        
     </build>
 </project>
