@@ -1,4 +1,4 @@
-package com.varxyz.jvx330.mvc.banking;
+package com.varxyz.jvx330.mvc.example6;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,8 +6,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AccountCommand {
-	private String userId;
-	private char accType;
+	private String email;
+	private String passwd;
+	private String accountType;
 	private String accountNum;
-	private double balance;
 }
