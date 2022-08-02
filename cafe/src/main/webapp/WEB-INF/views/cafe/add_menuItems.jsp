@@ -13,12 +13,12 @@
 	${menuCategory.categoryName}
 	
 	<form:form method ="post" modelAttribute="menuItems">
-	<label>메뉴</label>
+<%-- 	<label>메뉴</label>
 	<form:button type="submit" value="Apple Tea">Apple tea 5,000</form:button>
 	<form:button type="submit" value="Mint">Mint tea 5,000</form:button>
 	<form:select path="teaName">
 		<form:options items="${teaProviderList }"/>
-	</form:select><br>
+	</form:select><br> --%>
 	
 	<input type="submit" value="선택"/>
 </form:form>

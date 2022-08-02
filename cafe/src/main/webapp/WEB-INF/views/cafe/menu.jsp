@@ -8,10 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>${menuCategory.categoryName }</h3>
-${menuItems.itemName }
-<form:form method ="post" modelAttribute="menuItems">
-	<input type="submit" value="선택완료"/>
-</form:form>
+	<h3>Oder</h3>
+	<form:option value="example"></form:option>
 </body>
 </html>

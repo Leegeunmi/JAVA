@@ -31,9 +31,29 @@ CREATE TABLE Account(
 SELECT * FROM Account;
 
 
-CREATE TABLE MenuCategory(
-	mid				BIGINT			PRIMARY KEY AUTO_INCREMENT,
-	cutomerId		BIGINT			NOT NULL,
-	categoryName 	VARCHAR(20)		NOT NULL,
-	
-)
+
+
+DROP TABLE MenuItems;
+CREATE TABLE MenuItems(
+	itemName 		VARCHAR(20)		PRIMARY KEY,
+	price			DOUBLE			NOT NULL DEFAULT 0.0,
+	quantity		DOUBLE			NOT NULL DEFAULT 0.0,
+);
+SELECT * FROM MenuItems;
+
+
+CREATE TABLE Oder(
+	customerId		BIGINT			NOT NULL,
+	oderNum 		NUMBER(5)		PRIMARY KEY,
+	regDate 		TIMESTAMP 		NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+SELECT * FROM Oder;
+
+
+CREATE TABLE DetailOder(
+	oderNum 		NUMBER(5)		PRIMARY KEY,
+	espresso        NUMBER(4)
+);
+SELECT * FROM DetailOder;
+
+

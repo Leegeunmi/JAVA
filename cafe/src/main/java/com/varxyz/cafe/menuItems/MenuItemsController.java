@@ -1,4 +1,4 @@
-package com.varxyz.jvx330.mvc.example7;
+package com.varxyz.cafe.menuItems;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller("example7.addMenuItemsController")
-@RequestMapping("/example7/add_menuItems")
-public class AddMenuItemsController {
+@Controller("menuItemsController")
+@RequestMapping("/cafe/add_menuItems")
+public class MenuItemsController {
 	
 	@GetMapping
 	public String addMenuItemsForm(Model model) {
 		model.addAttribute("menuItems", new MenuItemsCommand());
-		return "example7/add_menuItems";
+		return "cafe/add_menuItems";
 	}
 	
 	@ModelAttribute("teaProviderList")
@@ -37,7 +37,7 @@ public class AddMenuItemsController {
 					MenuItemsCommand menuItems, Model model) {
 		
 		model.addAttribute("menuItems", menuItems);
-		return "example7/success_menuItems";
+		return "cafe/success_menuItems";
 	}
 	
 }

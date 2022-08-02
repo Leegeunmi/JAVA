@@ -1,4 +1,4 @@
-package com.varxyz.jvx330.mvc.example7;
+package com.varxyz.cafe.menuItems;
 
 import lombok.Getter;
 import lombok.Setter;

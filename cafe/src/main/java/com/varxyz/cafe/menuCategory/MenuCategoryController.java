@@ -1,4 +1,4 @@
-package com.varxyz.jvx330.mvc.example7;
+package com.varxyz.cafe.menuCategory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller("example7.addMenucategoryController")
-@RequestMapping("/example7/add_menuCategory")
-public class AddMenuCategoryController {
+@Controller("menuCategoryController")
+@RequestMapping("/cafe/add_menuCategory")
+public class MenuCategoryController {
 	
 	@GetMapping
 	public String addMenuCategoryForm(Model model) {
 		model.addAttribute("menuCategory", new MenuCategoryCommand());
-		return "example7/add_menuCategory";
+		return "cafe/add_menuCategory";
 	}
 	
 	@ModelAttribute("menuCategoryProviderList")
@@ -39,7 +39,7 @@ public class AddMenuCategoryController {
 					MenuCategoryCommand menuCategory, Model model) {
 		
 		model.addAttribute("menuCategory", menuCategory);
-		return "example7/add_menuItems";
+		return "cafe/add_menuItems";
 	}
 	
 }
