@@ -1,4 +1,4 @@
-package com.varxyz.cafe.menuItems;
+package com.varxyz.cafe.menuItem;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

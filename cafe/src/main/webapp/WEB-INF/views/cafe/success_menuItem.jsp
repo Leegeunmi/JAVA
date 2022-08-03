@@ -8,7 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>Order</h3>
-	<form:option value="example"></form:option>
+<h3>${menuCategory.categName }</h3>
+${teaProviderList }<br>
+${menuItem.teaName }
+<form:form method ="post" modelAttribute="menuItem">
+	<input type="submit" value="결제하기"/>
+</form:form>
 </body>
 </html>

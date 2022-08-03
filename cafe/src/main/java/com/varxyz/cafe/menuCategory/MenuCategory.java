@@ -1,12 +1,13 @@
 package com.varxyz.cafe.menuCategory;
 
-import lombok.AllArgsConstructor;
+import com.varxyz.cafe.menuItem.MenuItemCommand;
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
-public class MenuCategoryProvider {
+public class MenuCategory {
 	private String categName;
+	private String categCode;
 }

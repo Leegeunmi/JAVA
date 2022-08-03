@@ -8,11 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3>${menuCategory.categoryName }</h3>
-${teaProviderList }<br>
-${menuItems.teaName }
-<form:form method ="post" modelAttribute="menuItems">
-	<input type="submit" value="결제하기"/>
-</form:form>
+<h1>GOVASON</h1>
+<a href="/cafe/cutomer/select_menuCategory">카테고리 추가</a>
+<form action="select_menuCategory" method="post">
+	<input type="submit" value="주문하기" />
+</form>
 </body>
 </html>

@@ -12,33 +12,39 @@ CREATE TABLE Customer(
 
 SELECT * FROM Customer
 
-
-
-DROP TABLE MenuItems;
-CREATE TABLE MenuItems(
-	category		VARCHAR(20)		NOT NULL,
-	itemName 		VARCHAR(20)		PRIMARY KEY,
-	price			DOUBLE			NOT NULL DEFAULT 0.0,
-	quantity		BIGINT			NOT NULL
+DROP TABLE  MenuCategory;
+CREATE TABLE MenuCategory(
+	categCode		VARCHAR(20)		PRIMARY KEY,
+	categName		VARCHAR(20)		NOT NULL
 );
-SELECT * FROM MenuItems;
+SELECT * FROM MenuCategory;
 
 
-CREATE TABLE Oder(
-	oderNum 		BIGINT			PRIMARY KEY,
+DROP TABLE MenuItem;
+CREATE TABLE MenuItem(
+	itemCode		INT				PRIMARY KEY AUTO_INCREMENT,
+	itemName 		VARCHAR(20)		NOT NULL,
+	itemPrice		DOUBLE			NOT NULL DEFAULT 0.0,
+	itemStock		INT				NOT NULL DEFAULT 0
+)AUTO_INCREMENT = 2001;
+SELECT * FROM MenuItem;
+
+
+CREATE TABLE Order(
+	orderNum 		INT				PRIMARY KEY,
 	regDate			TIMESTAMP		NOT NULL	DEFAULT CURRENT_TIMESTAMP
 );
-SELECT * FROM Oder;
+SELECT * FROM Order;
 
 
 CREATE TABLE DetailOder(
-	oderNum 		BIGINT		PRIMARY KEY,
-	espresso        BIGINT		NOT NULL,
-	americano       BIGINT		NOT NULL,
-	cafelatte       BIGINT		NOT NULL,
-	cafemoca        BIGINT		NOT NULL,
-	cappuccino      BIGINT		NOT NULL,
-	totalPrice		BIGINT		NOT NULL
+	oderNum 		INT		PRIMARY KEY,
+	espresso       	INT		NOT NULL,
+	americano       INT		NOT NULL,
+	cafelatte       INT		NOT NULL,
+	cafemoca        INT		NOT NULL,
+	cappuccino      INT		NOT NULL,
+	totalPrice		INT		NOT NULL
 );
 SELECT * FROM DetailOder;
 

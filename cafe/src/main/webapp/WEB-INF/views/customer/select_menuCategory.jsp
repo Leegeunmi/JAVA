@@ -13,7 +13,7 @@
 	<label>메뉴</label>
 	<form:button type="submit" value="Brewing">Brewing</form:button>
 	<form:button type="submit" value="HandDrip">Hand drip</form:button>
-	<form:select path="categoryName">
+	<form:select path="categName">
 		<form:options items="${menuCategoryProviderList }"/>
 	</form:select><br>
 	

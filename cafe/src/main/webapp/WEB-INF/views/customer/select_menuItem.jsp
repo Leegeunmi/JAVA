@@ -10,9 +10,9 @@
 <body>
 <h3>메뉴아이템</h3>
 	${teaProviderList }<br>
-	${menuCategory.categoryName}
+	${menuCategory.categName}
 	
-	<form:form method ="post" modelAttribute="menuItems">
+	<form:form method ="post" modelAttribute="menuItem">
 <%-- 	<label>메뉴</label>
 	<form:button type="submit" value="Apple Tea">Apple tea 5,000</form:button>
 	<form:button type="submit" value="Mint">Mint tea 5,000</form:button>
