@@ -9,8 +9,8 @@ public class MenuItemServiceImpl implements MenuItemService{
 	
 	
 	@Override
-	public void addMenuItem(MenuItem menuItem) {
-		menuItemDao.addMenuItem(menuItem);
+	public void addMenuItem(MenuItemCommand menuItemCommand) {
+		menuItemDao.addMenuItem(menuItemCommand);
 	}
 
 }

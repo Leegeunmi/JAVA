@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebMvc //스프링 MVC설정에 대한 기본구성 제공  //web프로젝트하는데 필요한 MVC
-@ComponentScan(basePackages = "com.varxyz.cafe")//mvc밑에 있는 것을 모두 스캔
+@ComponentScan(basePackages = "com.varxyz.cafe")//cafe밑에 있는 것을 모두 스캔
 public class WebMVCConfig implements WebMvcConfigurer{
 	
 	//DispatcherServlet의 매핑경로를 "/"로 주었을 때, JSP/HRML/CSS등을 바르게 처리하도록 한다.

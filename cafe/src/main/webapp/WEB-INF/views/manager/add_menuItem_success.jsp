@@ -10,11 +10,11 @@
 </head>
 <body>
 	<h3>등록완료</h3>
-	<label>상품이름</label> : ${menuItem.itemName }<br>
-	<label>상품금액</label> : ${menuItem.itemPrice }<br>
-	<label>상품수량</label> : ${menuItem.itemStock }<br>
+	<label>상품이름</label> : ${menuItemCommand.itemName }<br>
+	<label>상품금액</label> : ${menuItemCommand.itemPrice }<br>
+	<label>상품수량</label> : ${menuItemCommand.itemStock }<br>
 <%-- 	<label>상품이미지</label> : ${menuItem.itemImg }<br> --%>
 	<button type="button" onclick='location.href="<c:url value='main'/>"'>종료</button>
-	<button type="button" onclick='location.href="<c:url value='manager/add_menuItem'/>"'>상품추가등록</button>
+	<button type="button" onclick='location.href="<c:url value='add_menuItem'/>"'>상품추가등록</button>
 </body>
 </html>

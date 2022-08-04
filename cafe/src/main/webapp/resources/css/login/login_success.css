@@ -1,0 +1,152 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+body {
+  background-color: #f7f7f7;
+}
+
+#wrap {
+  position: relative;
+  width: 1320px;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+
+
+#inner_wrap {
+  max-width: 900px;
+  min-width: 900px;
+  margin: 0 auto;
+  margin-top: 300px;
+}
+
+#inner_wrap .title {
+  position: relative;
+  text-align: center;
+  line-height: 50px;
+  padding: 10px 0 0;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+#inner_wrap .title h1 {
+  display: inline-block;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 60px;
+  line-height: 2;
+  margin-bottom: 5px;
+  color: #066834;
+}
+
+label + .txt {
+  line-height: 21px;
+}
+
+
+input {
+  padding: 16px;
+  display: inline-block;
+  border: 1px solid #066834;
+  background-color: white;
+}
+
+input:focus {
+  outline: none;
+  border: 1px solid #066834;
+}
+
+/* input size type */
+input.big {
+  width: 330px;
+}
+
+input.middle {
+  width: 280px;
+}
+
+input.small {
+  width: 150px;
+}
+
+input.tiny {
+  width: 100px;
+}
+
+
+.table_a {
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table_a tr td {
+  max-width: 400px;
+  min-width: 400px;
+  position: relative;
+  border-left: 0;
+  border-right: 0;
+  padding-bottom: 15px;
+  font-size: 14px;
+}
+
+.table_a tr td:nth-child(3) {
+  padding-bottom: 100px;
+}
+
+.table_a td > * { margin: 0 auto;}
+
+.table_a tr td:nth-child(1) {
+  width: 100px;
+  color: #333333;
+  text-align: center;
+}
+
+.table_a tr td:nth-child(4) {
+  padding-top: 60px;
+}
+
+.txt {
+  display:inline-block;
+  font-size: 14px;
+  color: #717071;
+  margin: 5px 0 0 5px;
+}
+
+
+
+/* button type */
+.button_group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+button {
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-sizing: border-box;
+  padding: 15px;
+  margin-top: 35px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+button:focus {
+  outline: none;
+}
+
+.gbtn {
+  color: white;
+  font-size: 15px;
+  min-width: 170px;
+  background-color: #6b895d;
+  border-radius: 3px;
+}
+
+.gbtn:hover {
+  background-color: #066834;
+}

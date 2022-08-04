@@ -6,12 +6,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="<c:url value='/resources/css/normalize.css'/>">
+<link rel="stylesheet" href="<c:url value='/resources/css/default.css'/>">
+<link rel="stylesheet" href="<c:url value='/resources/css/main/main.css'/>">
 </head>
 <body>
-<h1>GOVASON</h1>
-<a href="/cafe/cutomer/select_menuCategory">카테고리 추가</a>
-<form action="select_menuCategory" method="post">
-	<input type="submit" value="주문하기" />
-</form>
+<form:form action="main" method="post">
+    <div id="wrap">
+      <div id="inner_wrap">
+        <div class="main_img">
+          <img src="<c:url value='/resources/img/largePortName1.png'/>" alt="mainImg">
+        </div>
+        <div class="button_group">
+          <button class="gbtn" type="button" onclick='location.href="<c:url value='login'/>"'>관리자 페이지</button>
+		  <button class="gbtn" type="button" onclick='location.href="<c:url value='order_main'/>"'>고객 페이지</button>
+        </div>
+      </div>
+    </div>
+</form:form>
 </body>
 </html>

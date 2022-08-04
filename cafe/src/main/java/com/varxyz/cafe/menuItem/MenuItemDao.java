@@ -15,11 +15,11 @@ public class MenuItemDao {
 	}
 	
 	//아이템 추가
-	public void addMenuItem(MenuItem menuItem) {
-		String sql = "INSERT INTO MenuItem (itemName, itemPrice, itemStock, itemImg)"
-				+ " VALUES (?, ?, ?, ?)";				
-		jdbcTemplate.update(sql,menuItem.getItemName(), menuItem.getItemPrice(),
-								menuItem.getItemStock(), menuItem.getItemImg());
+	public void addMenuItem(MenuItemCommand menuItemCommand) {
+		String sql = "INSERT INTO MenuItem (itemName, itemPrice, itemStock)"
+				+ " VALUES (?, ?, ?)";				
+		jdbcTemplate.update(sql,menuItemCommand.getItemName(), menuItemCommand.getItemPrice(),
+				menuItemCommand.getItemStock());
 	}
 	
 	

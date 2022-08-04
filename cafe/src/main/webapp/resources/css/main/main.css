@@ -1,0 +1,63 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap');
+
+body {
+  background-color: #f7f7f7;
+}
+
+#wrap {
+  position: relative;
+  width: 1320px;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+#inner_wrap .main_img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+#inner_wrap .main_img img {
+  max-width: 750px;
+  min-width: 750px;
+  margin: 0 auto;
+  margin-top: 150px;
+}
+
+
+/* button type */
+.button_group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+button {
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-sizing: border-box;
+  padding: 15px;
+  margin-top: 95px;
+  margin-left: 10px;
+  margin-right: 33px;
+}
+
+button:focus {
+  outline: none;
+}
+
+.gbtn {
+  color: white;
+  font-size: 15px;
+  min-width: 170px;
+  background-color: #6b895d;
+  border-radius: 3px;
+}
+
+.gbtn:hover {
+  background-color: #066834;
+}

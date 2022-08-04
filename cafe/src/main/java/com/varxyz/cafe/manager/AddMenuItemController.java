@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.varxyz.cafe.menuItem.MenuItem;
 import com.varxyz.cafe.menuItem.MenuItemCommand;
@@ -16,17 +16,29 @@ public class AddMenuItemController {
 
 	@Autowired
 	MenuItemServiceImpl menuItemService;
-	
+
 	@GetMapping("manager/add_menuItem")
-	public String addCustomerForm() {
+	public String addCustomerForm(Model model) {
+		model.addAttribute("menuItem", new MenuItemCommand());
 		return "/manager/add_menuItem";
 	}
 	
 	
+
+	 /*@PostMapping("/manager/add_menuItem") 
+	 public String addMenuItem(@ModelAttribute("menuItem") 
+	 								MenuItemCommand menuItem , Model model) {
+		 model.addAttribute("menuItem", menuItem);
+		 menuItemService.addMenuItem(menuItem);
+		 return "manager/add_menuItem"; 
+	}*/
+	 
+	
 	@PostMapping("manager/add_menuItem")
-	public String addMenuItem(@ModelAttribute("menuItem")
-						MenuItemCommand menuItem, Model model) {
-		model.addAttribute("meniItem", menuItem);
+	public String addMenuItem(MenuItemCommand menuItemCommand, Model model) {
+		menuItemService.addMenuItem(menuItemCommand);
+		model.addAttribute(menuItemCommand);
 		return "manager/add_menuItem_success";
 	}
+	
 }

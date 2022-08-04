@@ -1,18 +1,20 @@
 package com.varxyz.cafe.menuItem;
 
-import java.util.Date;
 
-import com.varxyz.cafe.menuCategory.MenuCategory;
-
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@AllArgsConstructor
 public class MenuItemCommand {
 	/* private String categName; */
 	private String itemName;
 	private double itemPrice;
 	private int itemStock;
-	private String itemImg;
+	/* private String itemImg; */	
+	public MenuItemCommand() {
+		super();
+	}
 }

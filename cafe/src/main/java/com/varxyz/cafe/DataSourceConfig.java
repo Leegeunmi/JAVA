@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import com.varxyz.cafe.manager.ManagerDao;
+import com.varxyz.cafe.manager.ManagerServiceImpl;
 import com.varxyz.cafe.menuItem.MenuItemDao;
 import com.varxyz.cafe.menuItem.MenuItemServiceImpl;
 
@@ -38,6 +40,16 @@ public class DataSourceConfig {
 	@Bean
 	public MenuItemServiceImpl menuItemService() {
 		return new MenuItemServiceImpl();
+	}
+	
+	@Bean
+	public ManagerDao managerDao() {
+		return new ManagerDao(dataSource());
+	}
+	
+	@Bean
+	public ManagerServiceImpl managerService() {
+		return new ManagerServiceImpl();
 	}
 	
 }

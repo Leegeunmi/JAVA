@@ -18,7 +18,6 @@ public class MenuItemRowMapper implements RowMapper<MenuItem> {
 		menuItem.setItemName(rs.getString("itemName"));
 		menuItem.setItemPrice(rs.getDouble("itemPrice"));
 		menuItem.setItemStock(rs.getInt("itemStock"));
-		menuItem.setItemImg(rs.getString("intemImg"));
 		menuItem.setRegDate(rs.getDate("regDate"));
 		return menuItem;
 	}

@@ -19,7 +19,7 @@ public class MenuItem {
 	private String itemName;
 	private double itemPrice;
 	private int itemStock;
-	private String itemImg;
+	/* private String itemImg; */
 	private Date regDate;
 	
 	public MenuItem() {
