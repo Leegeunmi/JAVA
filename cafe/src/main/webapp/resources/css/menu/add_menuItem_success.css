@@ -24,7 +24,7 @@ body {
   max-width: 750px;
   min-width: 750px;
   margin: 0 auto;
-  padding-top: 230px;
+  padding-top: 135px;
 }
 
 #inner_wrap .title {
@@ -33,7 +33,7 @@ body {
   line-height: 50px;
   padding: 10px 0 0;
   margin-top: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
 }
 
 #inner_wrap .title h1 {
@@ -45,78 +45,18 @@ body {
   color: #066834;
 }
 
-label + .txt {
-  line-height: 21px;
-}
-
-
-input {
-  padding: 16px;
-  display: inline-block;
-  border: 1px solid #066834;
-  background-color: white;
-}
-
-input:focus {
-  outline: none;
-  border: 1px solid #066834;
-}
-
-/* input size type */
-input.big {
+.add_menu_txt {
   width: 330px;
-}
-
-input.middle {
-  width: 280px;
-}
-
-input.small {
-  width: 150px;
-}
-
-input.tiny {
-  width: 100px;
-}
-
-
-.table_a {
-  table-layout: fixed;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-.table_a tr td {
-  max-width: 400px;
-  min-width: 400px;
   position: relative;
-  border-left: 0;
-  border-right: 0;
-  padding-bottom: 15px;
-  font-size: 14px;
-}
-
-.table_a tr td:nth-child(3) {
-  padding-bottom: 100px;
-}
-
-.table_a td > * { margin: 0 auto;}
-
-.table_a tr td:nth-child(1) {
-  width: 100px;
-  color: #333333;
+  margin: 0 auto;
   text-align: center;
+  background-color: white;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
-
-.table_a tr td:nth-child(4) {
-  padding-top: 60px;
-}
-
-.txt {
-  display:inline-block;
-  font-size: 14px;
-  color: #717071;
-  margin: 5px 0 0 5px;
+.add_menu_txt p{
+  line-height: 30px;
+  padding: 10px;
 }
 
 
@@ -155,4 +95,3 @@ button:focus {
 .gbtn:hover {
   background-color: #066834;
 }
-

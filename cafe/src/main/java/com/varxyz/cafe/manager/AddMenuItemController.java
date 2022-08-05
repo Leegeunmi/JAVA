@@ -35,9 +35,14 @@ public class AddMenuItemController {
 	 
 	
 	@PostMapping("manager/add_menuItem")
-	public String addMenuItem(MenuItemCommand menuItemCommand, Model model) {
-		menuItemService.addMenuItem(menuItemCommand);
-		model.addAttribute(menuItemCommand);
+	public String addMenuItem(@ModelAttribute("menuItem") MenuItemCommand menuItem, Model model) {
+		menuItemService.addMenuItem(menuItem);
+		model.addAttribute(menuItem);
+		return "manager/add_menuItem_success";
+	}
+	
+	@GetMapping("manager/add_menuItem_success")
+	public String resultForm() {
 		return "manager/add_menuItem_success";
 	}
 	

@@ -27,10 +27,10 @@ body {
 }
 
 #inner_wrap .main_img img {
-  max-width: 405px;
-  min-width: 405px;
+  max-width: 450px;
+  min-width: 450px;
   margin: 0 auto;
-  margin-top: 215px;
+  margin-top: 220px;
 }
 
 
@@ -40,6 +40,7 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+  margin-right: 10px;
 }
 
 button {
@@ -48,7 +49,7 @@ button {
   border: none;
   box-sizing: border-box;
   padding: 13px;
-  margin-top: 80px;
+  margin-top: 70px;
   margin-left: 15px;
   margin-right: 15px;
 }
@@ -60,7 +61,7 @@ button:focus {
 .gbtn {
   color: white;
   font-size: 15px;
-  min-width: 170px;
+  min-width: 150px;
   background-color: #6b895d;
   border-radius: 3px;
 }

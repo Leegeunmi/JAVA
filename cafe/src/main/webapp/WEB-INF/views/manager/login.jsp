@@ -13,13 +13,12 @@
 </head>
 <body>
 	<form action="login" method="post">
-	
-    <div id="wrap">
+	<div id= super_wrap>
+		<div id="wrap">
       <div id="login_wrap">
         <div class="title">
           <h1>Login</h1>
         </div>
-        <form>
           <table class="table_a">
             <tr>
               <td>
@@ -34,15 +33,15 @@
           </table>
           <div class="button_group">
             <button class="gbtn" type="submit">로그인</button>
-            <button class="gbtn" type="reset">취소</button>
+            <button class="gbtn" type="button" onclick='location.href="<c:url value='main'/>"'>취소</button>
           </div>
           <div class="join">
             <p>관리자등록이 필요하신가요?&nbsp;&nbsp;</p>
             <a href="join"><strong>관리자등록</strong></a>
           </div>
-        </form>
       </div>
     </div>
+	</div>
 	</form>
 </body>
 </html>

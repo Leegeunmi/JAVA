@@ -21,12 +21,12 @@ body {
 }
 
 
-/* 로그인 */
+/* 메뉴추가 */
 #login_wrap {
   max-width: 400px;
   min-width: 400px;
   margin: 0 auto;
-  padding-top: 175px;
+  padding-top: 170px;
 }
 
 #login_wrap .title {
@@ -182,4 +182,3 @@ button:focus {
 .gbtn:hover {
   background-color: #066834;
 }
-

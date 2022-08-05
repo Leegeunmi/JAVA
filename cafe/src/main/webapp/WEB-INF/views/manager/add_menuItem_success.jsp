@@ -6,15 +6,30 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="<c:url value='/resources/css/normalize.css'/>">
+<link rel="stylesheet" href="<c:url value='/resources/css/default.css'/>">
+<link rel="stylesheet" href="<c:url value='/resources/css/menu/add_menuItem_success.css'/>">
 <%-- <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/default.css'/>" /> --%>
 </head>
 <body>
-	<h3>등록완료</h3>
-	<label>상품이름</label> : ${menuItemCommand.itemName }<br>
-	<label>상품금액</label> : ${menuItemCommand.itemPrice }<br>
-	<label>상품수량</label> : ${menuItemCommand.itemStock }<br>
-<%-- 	<label>상품이미지</label> : ${menuItem.itemImg }<br> --%>
-	<button type="button" onclick='location.href="<c:url value='main'/>"'>종료</button>
-	<button type="button" onclick='location.href="<c:url value='add_menuItem'/>"'>상품추가등록</button>
+    <div id="super_wrap">
+      <div id="wrap">
+        <div id="inner_wrap">
+          <div class="title">
+            <h1>Success!</h1>
+          </div>
+            <div class="add_menu_txt">
+              <p>등록 메뉴명<br><strong>${menuItem.itemName}</strong></p>
+              <p>등록 메뉴가격<br><strong>${menuItem.itemPrice}</strong></p>
+              <p>등록 메뉴수량<br><strong>${menuItem.itemStock}</strong></p>
+            </div>
+            <div class="button_group">
+              <button class="gbtn" type="button" onclick='location.href="<c:url value='add_menuItem'/>"'>추가등록</button>
+              <button class="gbtn" type="button" onclick='location.href="<c:url value='main'/>"'>완료</button>
+            </div>
+        </div>
+      </div>
+    </div>
 </body>
 </html>

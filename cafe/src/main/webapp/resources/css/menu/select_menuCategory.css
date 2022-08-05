@@ -1,0 +1,64 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+body {
+  background-color: black;
+}
+
+#super_wrap {
+  width: 750px;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: #066834;
+}
+
+#super_wrap #wrap {
+  position: relative;
+  width: 700px;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+#inner_wrap .page_logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+#inner_wrap .page_logo img {
+  max-width: 480px;
+  min-width: 480px;
+  margin: 0 auto;
+  margin-top: 95px;
+}
+
+#category_wrap {
+  margin: 0 auto;
+  text-align: center;
+}
+
+#category_wrap .category {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 35px;
+  color: white;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+#category_wrap .category li {
+  margin-bottom: 60px;
+}
+
+#category_wrap .category a {
+  color: white;
+}
+
+#category_wrap .category a:hover {
+  opacity: 0.8;
+}
+
+.select_txt p {
+  color: white;
+}

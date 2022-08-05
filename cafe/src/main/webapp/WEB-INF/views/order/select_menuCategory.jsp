@@ -6,18 +6,32 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="<c:url value='/resources/css/normalize.css'/>">
+<link rel="stylesheet" href="<c:url value='/resources/css/default.css'/>">
+<link rel="stylesheet" href="<c:url value='/resources/css/menu/select_menuCategory.css'/>">
 </head>
-<body>
-<h3>메뉴카테고리</h3>
-<form:form method ="post" modelAttribute="menuCategory">
-	<label>메뉴</label>
-	<form:button type="submit" value="Brewing">Brewing</form:button>
-	<form:button type="submit" value="HandDrip">Hand drip</form:button>
-	<form:select path="categName">
-		<form:options items="${menuCategoryProviderList }"/>
-	</form:select><br>
-	
-	<input type="submit" value="선택"/>
-</form:form>
-</body>
+	<body>
+    <div id="super_wrap">
+      <div id="wrap">
+        <div id="inner_wrap">
+          <div class="page_logo">
+          	<img src="<c:url value='/resources/img/whiteName.png'/>" alt="whiteName">
+          </div>
+          <div id="category_wrap">
+            <ul class="category">
+              <li><a type="button" onclick='location.href="<c:url value='select_menuItem'/>"'>Coffee</a></li>
+              <li><a href="#">Hand drip</a></li>
+              <li><a href="#">Tea</a></li>
+              <li><a href="#">Drink</a></li>
+              <li><a href="#">Cake</a></li>
+            </ul>
+            <div class="select_txt">
+              <p>메뉴를 선택해주세요.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

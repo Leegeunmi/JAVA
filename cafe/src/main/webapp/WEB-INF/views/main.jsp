@@ -12,18 +12,21 @@
 <link rel="stylesheet" href="<c:url value='/resources/css/main/main.css'/>">
 </head>
 <body>
-<form:form action="main" method="post">
-    <div id="wrap">
-      <div id="inner_wrap">
-        <div class="main_img">
-          <img src="<c:url value='/resources/img/largePortName1.png'/>" alt="mainImg">
-        </div>
-        <div class="button_group">
-          <button class="gbtn" type="button" onclick='location.href="<c:url value='login'/>"'>관리자 페이지</button>
-		  <button class="gbtn" type="button" onclick='location.href="<c:url value='order_main'/>"'>고객 페이지</button>
-        </div>
-      </div>
-    </div>
-</form:form>
+	<div id="super_wrap">
+		<form:form action="main" method="post">
+	    <div id="wrap">
+	      <div id="inner_wrap">
+	        <div class="main_img">
+	          <img src="<c:url value='/resources/img/largePortName1.png'/>" alt="mainImg">
+	        </div>
+	        <div class="button_group">
+	          <button class="gbtn" type="button" onclick='location.href="<c:url value='login'/>"'>관리자 페이지</button>
+			  <button class="gbtn" type="button" onclick='location.href="<c:url value='order_main'/>"'>고객 페이지</button>
+	        </div>
+	      </div>
+	    </div>
+	</form:form>
+	</div>
+
 </body>
 </html>

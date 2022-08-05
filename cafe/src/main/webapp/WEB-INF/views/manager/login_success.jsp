@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="<c:url value='/resources/css/login/login_success.css'/>">
 </head>
 <body>
-
+	<div id="super_wrap">		
     <div id="wrap">
       <div id="inner_wrap">
         <div class="title">
@@ -20,11 +20,15 @@
         </div>
         <form>
           <div class="button_group">
-          	<a href="/cafe/manager/add_menuItem"><button class="gbtn">메뉴등록</button></a>
-          	<a href="/cafe/manager/main"><button class="gbtn">취소</button></a>
+          	<button class="gbtn" type="button" onclick='location.href="<c:url value='add_menuItem'/>"'>메뉴등록</button>
+          	<button class="gbtn" type="button" onclick='location.href="<c:url value='main'/>"'>취소</button>
           </div>
         </form>
       </div>
     </div>
+	</div>
 </body>
 </html>
+
+
+

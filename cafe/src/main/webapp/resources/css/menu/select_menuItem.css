@@ -7,6 +7,7 @@ body {
 }
 
 #super_wrap {
+  position: relative;
   width: 750px;
   height: 100vh;
   margin: 0 auto;
@@ -15,110 +16,75 @@ body {
 
 #super_wrap #wrap {
   position: relative;
-  width: 750px;
+  width: 700px;
   height: 100vh;
   margin: 0 auto;
 }
 
+
 #inner_wrap {
-  max-width: 750px;
-  min-width: 750px;
+  position: relative;
+  max-width: 500px;
+  min-width: 500px;
   margin: 0 auto;
-  padding-top: 230px;
+  padding-top: 65px;
 }
 
 #inner_wrap .title {
   position: relative;
   text-align: center;
-  line-height: 50px;
+  line-height: 30px;
   padding: 10px 0 0;
-  margin-top: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 #inner_wrap .title h1 {
   display: inline-block;
   font-family: 'Libre Baskerville', serif;
   font-size: 45px;
-  line-height: 2;
-  margin-bottom: 5px;
   color: #066834;
 }
 
-label + .txt {
-  line-height: 21px;
+#inner_wrap .title p {
+  font-size: 12px;
 }
 
 
-input {
-  padding: 16px;
-  display: inline-block;
-  border: 1px solid #066834;
-  background-color: white;
+.table_b {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-input:focus {
-  outline: none;
-  border: 1px solid #066834;
+.table_b img {
+  width: 200px;
+  padding: 19px;
+  padding-bottom: 0;
 }
 
-/* input size type */
-input.big {
-  width: 330px;
+.table_b img:hover {
+  opacity: 0.9;
 }
 
-input.middle {
-  width: 280px;
-}
-
-input.small {
-  width: 150px;
-}
-
-input.tiny {
-  width: 100px;
-}
-
-
-.table_a {
-  table-layout: fixed;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-.table_a tr td {
-  max-width: 400px;
-  min-width: 400px;
-  position: relative;
-  border-left: 0;
-  border-right: 0;
-  padding-bottom: 15px;
-  font-size: 14px;
-}
-
-.table_a tr td:nth-child(3) {
-  padding-bottom: 100px;
-}
-
-.table_a td > * { margin: 0 auto;}
-
-.table_a tr td:nth-child(1) {
-  width: 100px;
-  color: #333333;
+.table_b p {
   text-align: center;
+  color: #066834;
 }
 
-.table_a tr td:nth-child(4) {
-  padding-top: 60px;
+.table_b tr td p:nth-child(1) {
+  font-size: 15px;
+  margin-top: 7px;
+  margin-bottom: 5px;
 }
 
-.txt {
-  display:inline-block;
-  font-size: 14px;
-  color: #717071;
-  margin: 5px 0 0 5px;
+.table_b tr td p:nth-child(2) {
+  font-size: 12px;
+  margin-bottom: 5px;
 }
 
+.table_b tr td p:nth-child(3) {
+  font-size: 12px;
+}
 
 
 /* button type */
@@ -135,7 +101,7 @@ button {
   border: none;
   box-sizing: border-box;
   padding: 13px;
-  margin-top: 35px;
+  margin-top: 40px;
   margin-left: 15px;
   margin-right: 15px;
 }
@@ -156,3 +122,17 @@ button:focus {
   background-color: #066834;
 }
 
+.left_right img {
+  position: absolute;
+  width: 30px;
+  top: 420px;
+}
+
+.left_right img:nth-child(1) {
+  padding-left: 50px;
+}
+
+.left_right img:nth-child(2) {
+  right: 0px;
+  padding-right: 50px;
+}

@@ -15,8 +15,5 @@ public class MainController {
 		return "main";
 	}
 	
-//	@GetMapping("/*/main")
-//	public String oder() {
-//		return "order/order_main";
-//	}
+
 }
